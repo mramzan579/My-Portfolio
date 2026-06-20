@@ -1,0 +1,87 @@
+/* 
+ * Form Styles & intl-tel-input Overrides
+ * Custom Success Modal
+ */
+
+.iti {
+    width: 100%;
+}
+
+.iti__flag-container {
+    padding: 2px;
+}
+
+/* Custom Success Modal */
+.success-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.success-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.success-modal {
+    background: var(--bg-surface);
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--bg-surface-dark);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.success-modal-overlay.active .success-modal {
+    transform: translateY(0);
+}
+
+.success-icon-wrap {
+    width: 80px; height: 80px;
+    background: rgba(34, 197, 94, 0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto var(--space-6);
+}
+
+.success-icon-wrap i {
+    font-size: 2.5rem;
+    color: #22c55e;
+}
+
+/* Form Loader */
+.form-loader {
+    display: inline-block;
+    width: 20px; height: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    display: none;
+}
+
+.btn.loading .btn-text { display: none; }
+.btn.loading .form-loader { display: inline-block; }
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.form-error-msg {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
+}

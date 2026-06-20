@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Discovery | Ramzan Digital</title>
+    <meta name="description" content="Book a discovery call and let's discuss how we can build a scalable digital architecture for your business.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons & Intl Tel Input -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    
+    <!-- CSS System -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .timeline { display: flex; flex-direction: column; gap: var(--space-6); position: relative; padding-left: var(--space-8); }
+        .timeline::before { content: ''; position: absolute; left: 11px; top: 0; bottom: 0; width: 2px; background: var(--bg-surface-dark); }
+        .timeline-step { position: relative; }
+        .timeline-step::before {
+            content: ''; position: absolute; left: calc(var(--space-8) * -1); top: 5px; width: 24px; height: 24px;
+            background: var(--bg-main); border: 2px solid var(--color-accent); border-radius: 50%; z-index: 1;
+        }
+        .form-group { margin-bottom: var(--space-4); }
+        .form-group label { display: block; margin-bottom: var(--space-2); font-weight: 500; font-size: var(--text-sm); }
+        .form-control {
+            width: 100%; padding: var(--space-3); border: 1px solid #e2e8f0; border-radius: var(--radius-md);
+            font-family: var(--font-primary); font-size: var(--text-base); 
+            background: #ffffff !important;
+            color: #0f172a !important; /* Absolute fix for text visibility */
+        }
+        .form-control::placeholder {
+            color: #94a3b8 !important;
+        }
+        .form-control:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
+    </style>
+
+    <!-- Analytics Hooks Prep (Do not connect yet)
+    <script>
+        // function trackLeadFormSubmission(leadData) { ... }
+    </script>
+    -->
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header style="padding: var(--space-4) 0; border-bottom: 1px solid var(--bg-surface-dark);">
+        <div class="container flex justify-between items-center">
+            <a href="index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-primary);">
+                Ramzan<span class="text-accent">Digital</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="case-studies/index.html">Case Studies</a>
+                <a href="industries/index.html">Industries</a>
+                <a href="blog/index.html">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container grid" style="grid-template-columns: 1fr 1fr; gap: var(--space-12);">
+            
+            <!-- Left: Timeline & Authority -->
+            <div>
+                <div style="margin-bottom: var(--space-12);">
+                    <h1 class="section-title">Start Your Project</h1>
+                    <p class="text-secondary" style="font-size: var(--text-lg);">Fill out the form to help us understand your needs. We'll review your details and prepare for our discovery call.</p>
+                </div>
+
+                <div style="background: var(--bg-surface); padding: var(--space-8); border-radius: var(--radius-lg);">
+                    <h3 style="margin-bottom: var(--space-6);">What Happens Next?</h3>
+                    <div class="timeline">
+                        <div class="timeline-step">
+                            <h4 style="margin-bottom: 0.25rem;">1. Submit Form</h4>
+                            <p class="text-secondary text-sm">Provide your project details and goals.</p>
+                        </div>
+                        <div class="timeline-step">
+                            <h4 style="margin-bottom: 0.25rem;">2. Discovery Call</h4>
+                            <p class="text-secondary text-sm">A 30-min consultation to align on architecture.</p>
+                        </div>
+                        <div class="timeline-step">
+                            <h4 style="margin-bottom: 0.25rem;">3. Proposal</h4>
+                            <p class="text-secondary text-sm">Receive a detailed scope, timeline, and ROI mapping.</p>
+                        </div>
+                        <div class="timeline-step">
+                            <h4 style="margin-bottom: 0.25rem;">4. Development</h4>
+                            <p class="text-secondary text-sm">We build your high-converting digital platform.</p>
+                        </div>
+                        <div class="timeline-step">
+                            <h4 style="margin-bottom: 0.25rem;">5. Launch & Scale</h4>
+                            <p class="text-secondary text-sm">Deployment, training, and ongoing lead generation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: The Lead Qualification Engine -->
+            <div>
+                <!-- 
+                  Data hooks added for future CRM integration (e.g., data-score-budget) 
+                  Action goes to a placeholder webhook / endpoint
+                -->
+                <form id="leadForm" action="https://formspree.io/f/xkolwwzk" method="POST" style="background: var(--bg-main); padding: var(--space-8); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border: 1px solid var(--bg-surface-dark);">
+                    
+                    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-bottom: 0;">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" class="form-control" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" class="form-control" required placeholder="john@company.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="position: relative;">
+                        <label>WhatsApp Number *</label>
+                        <!-- Intl Tel Input attaches here -->
+                        <input type="tel" id="whatsapp-input" name="whatsapp" class="form-control" required>
+                        <span class="form-error-msg"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Country *</label>
+                        <select class="form-control" id="country-select" required>
+                            <option value="">Select Country</option>
+                            <option value="US">United States</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="CA">Canada</option>
+                            <option value="AU">Australia</option>
+                            <option value="AE">United Arab Emirates</option>
+                            <option value="SA">Saudi Arabia</option>
+                            <option value="PK">Pakistan</option>
+                            <!-- Note: Israel deliberately excluded per requirements -->
+                            <option value="OTHER">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Project Budget (Lead Scoring Prep) *</label>
+                        <select class="form-control" name="budget" required onchange="this.setAttribute('data-score-budget', this.selectedIndex)">
+                            <option value="">Select Budget Range</option>
+                            <option value="under_500">Under $500</option>
+                            <option value="500_1000">$500 - $1,000</option>
+                            <option value="1000_3000">$1,000 - $3,000</option>
+                            <option value="custom">Custom / Enterprise</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Timeline *</label>
+                        <select class="form-control" name="urgency" required onchange="this.setAttribute('data-score-urgency', this.selectedIndex)">
+                            <option value="">Expected Launch</option>
+                            <option value="urgent">Urgent (ASAP)</option>
+                            <option value="1_month">Within 1 Month</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Project Details</label>
+                        <textarea class="form-control" rows="4" placeholder="Briefly describe your business goals and what you need..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem; font-size: 1.1rem;">
+                        <span class="btn-text">Request Discovery Call <i class="fa-solid fa-arrow-right" style="margin-left: 0.5rem;"></i></span>
+                        <div class="form-loader"></div>
+                    </button>
+                    <p class="text-center text-muted" style="margin-top: var(--space-4); font-size: var(--text-sm);">
+                        We usually respond within 24 hours.
+                    </p>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer style="background: var(--bg-surface-dark); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--bg-surface);">
+        <div class="container grid footer-grid" style="grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-8);">
+            <div>
+                <a href="index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-primary); display: block; margin-bottom: var(--space-4);">
+                    Ramzan<span class="text-accent">Digital</span>
+                </a>
+                <p class="text-secondary" style="font-size: var(--text-sm); max-width: 300px; margin-bottom: var(--space-6);">
+                    Engineering business architectures. We build high-performance websites and lead generation funnels tailored for scalable growth.
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/in/muhammad-ramzan-bb63233aa/" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-linkedin" style="font-size: 1.5rem;"></i></a>
+                    <a href="https://github.com/mramzan579" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-github" style="font-size: 1.5rem;"></i></a>
+                    <a href="mailto:mramzan147800@gmail.com" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-solid fa-envelope" style="font-size: 1.5rem;"></i></a>
+                    <a href="https://wa.me/923491943858" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Company</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><a href="about.html" class="text-secondary">Meet The Founder</a></li>
+                    <li><a href="services.html" class="text-secondary">Our Solutions</a></li>
+                    <li><a href="contact.html" class="text-secondary">Book Discovery</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Work</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><a href="case-studies/index.html" class="text-secondary">Case Studies</a></li>
+                    <li><a href="industries/index.html" class="text-secondary">Industries Served</a></li>
+                    <li><a href="blog/index.html" class="text-secondary">Insights & Tech</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Legal</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><span class="text-secondary">Privacy Policy</span></li>
+                    <li><span class="text-secondary">Terms of Service</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container text-center" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: var(--space-8);">
+            <p class="text-muted" style="font-size: var(--text-sm); margin-bottom: 0.5rem;"><a href="privacy.html" class="hover-text-primary" style="margin-right: 1rem;">Privacy Policy</a><a href="terms.html" class="hover-text-primary">Terms of Service</a></p>
+            <p class="text-muted" style="font-size: var(--text-sm);">&copy; <span id="year"></span> Ramzan Digital. All rights reserved. Designed & Engineered by Muhammad Ramzan.</p>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="success-modal-overlay" id="successModal">
+        <div class="success-modal">
+            <div class="success-icon-wrap">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h2 style="margin-bottom: var(--space-2);">Application Received!</h2>
+            <p class="text-secondary" style="margin-bottom: var(--space-6);">Thank you for reaching out. Ramzan will review your project details and contact you via WhatsApp shortly to schedule your free Discovery Call.</p>
+            <button class="btn btn-primary" id="closeModalBtn" style="width: 100%; justify-content: center;">Awesome!</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

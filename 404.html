@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Ramzan Digital</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+    <!-- Absolute paths for the global 404 page so styles load regardless of subfolder error -->
+    <header style="padding: var(--space-4) 0; border-bottom: 1px solid var(--bg-surface-dark);">
+        <div class="container flex justify-between items-center">
+            <a href="/" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-primary);">Ramzan<span class="text-accent">Digital</span></a>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/services.html">Services</a>
+                <a href="/case-studies/index.html">Case Studies</a>
+                <a href="/industries/index.html">Industries</a>
+                <a href="/blog/index.html">Blog</a>
+            </nav>
+            <a href="/contact.html" class="btn btn-outline hide-on-mobile">Free Audit</a>
+        </div>
+    </header>
+
+    <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: var(--space-16) 0;">
+        <div class="container text-center">
+            <h1 style="font-size: 8rem; line-height: 1; color: var(--color-accent); margin-bottom: var(--space-4);">404</h1>
+            <h2 class="section-title" style="margin-bottom: var(--space-6);">System Architecture Not Found</h2>
+            <p class="text-secondary" style="max-width: 500px; margin: 0 auto var(--space-8); font-size: var(--text-lg);">
+                It seems the page you are looking for has been moved, deleted, or doesn't exist within our database.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="/" class="btn btn-primary"><i class="fa-solid fa-home" style="margin-right: 0.5rem;"></i> Return Home</a>
+                <a href="/case-studies/index.html" class="btn btn-outline">View Case Studies</a>
+            </div>
+        </div>
+    </main>
+
+    <footer style="background: var(--bg-surface-dark); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--bg-surface);">
+        <div class="container text-center" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: var(--space-8);">
+            <p class="text-muted" style="font-size: var(--text-sm); margin-bottom: 0.5rem;"><a href="privacy.html" class="hover-text-primary" style="margin-right: 1rem;">Privacy Policy</a><a href="terms.html" class="hover-text-primary">Terms of Service</a></p>
+            <p class="text-muted" style="font-size: var(--text-sm);">&copy; <span id="year"></span> Ramzan Digital. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

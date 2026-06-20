@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Ramzan Digital</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
+
+    <header style="padding: var(--space-4) 0; border-bottom: 1px solid var(--bg-surface-dark);">
+        <div class="container flex justify-between items-center">
+            <a href="index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-primary);">Ramzan<span class="text-accent">Digital</span></a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="case-studies/index.html">Case Studies</a>
+                <a href="industries/index.html">Industries</a>
+                <a href="blog/index.html">Blog</a>
+            </nav>
+            <a href="contact.html" class="btn btn-outline hide-on-mobile">Free Audit</a>
+        </div>
+    </header>
+
+    <main style="flex-grow: 1; padding: var(--space-16) 0;">
+        <div class="container" style="max-width: 800px;">
+            <h1 class="section-title" style="margin-bottom: var(--space-8);">Privacy Policy</h1>
+            
+            <div style="color: var(--text-secondary); line-height: 1.8;">
+                <p style="margin-bottom: var(--space-4);">Last updated: November 2024</p>
+                
+                <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-2); color: var(--text-primary);">1. Information We Collect</h3>
+                <p style="margin-bottom: var(--space-4);">We collect information you provide directly to us when you fill out a form, request an audit, or communicate with us. This may include your name, email address, phone number, and business details.</p>
+                
+                <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-2); color: var(--text-primary);">2. How We Use Your Information</h3>
+                <p style="margin-bottom: var(--space-4);">We use the information we collect to provide, maintain, and improve our services, to process your requests, and to communicate with you regarding your projects and our architectural solutions.</p>
+                
+                <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-2); color: var(--text-primary);">3. Information Sharing</h3>
+                <p style="margin-bottom: var(--space-4);">We do not share your personal information with third parties except as necessary to provide our services or as required by law. Your data is kept strictly confidential within Ramzan Digital.</p>
+                
+                <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-2); color: var(--text-primary);">4. Contact Us</h3>
+                <p style="margin-bottom: var(--space-4);">If you have any questions about this Privacy Policy, please contact us at mramzan147800@gmail.com.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer style="background: var(--bg-surface-dark); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--bg-surface);">
+        <div class="container text-center" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: var(--space-8);">
+            <p class="text-muted" style="font-size: var(--text-sm); margin-bottom: 0.5rem;">
+                <a href="privacy.html" class="hover-text-primary" style="margin-right: 1rem;">Privacy Policy</a>
+                <a href="terms.html" class="hover-text-primary">Terms of Service</a>
+            </p>
+            <p class="text-muted" style="font-size: var(--text-sm);">&copy; <span id="year"></span> Ramzan Digital. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Insights | Ramzan Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .blog-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--bg-surface-dark);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+        }
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--bg-surface-dark);
+        }
+        .blog-content {
+            padding: var(--space-6);
+        }
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: var(--text-xs);
+            color: var(--color-accent);
+            margin-bottom: var(--space-2);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .blog-title {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-2);
+            line-height: 1.4;
+        }
+        .blog-excerpt {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            margin-bottom: var(--space-4);
+        }
+    </style>
+</head>
+<body>
+    <header style="padding: var(--space-4) 0; border-bottom: 1px solid var(--bg-surface-dark);">
+        <div class="container flex justify-between items-center">
+            <a href="../index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-primary);">Ramzan<span class="text-accent">Digital</span></a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../services.html">Services</a>
+                <a href="../case-studies/index.html">Case Studies</a>
+                <a href="../industries/index.html">Industries</a>
+                <a href="index.html" style="color: var(--color-accent);">Blog</a>
+            </nav>
+            <a href="../contact.html" class="btn btn-outline hide-on-mobile">Free Audit</a>
+        </div>
+    </header>
+
+    <section class="section" style="padding-top: var(--space-12);">
+        <div class="container text-center" style="margin-bottom: var(--space-12);">
+            <span class="section-subtitle">Technical Writing & Insights</span>
+            <h1 class="section-title">The Engineering Blog</h1>
+            <p class="text-secondary" style="max-width: 600px; margin: 0 auto;">Thoughts on business architecture, lead generation funnels, and modern web development.</p>
+        </div>
+
+        <!-- Featured Categories (Filters) & Search -->
+        <div class="container text-center" style="margin-bottom: var(--space-8);">
+            <div style="max-width: 500px; margin: 0 auto var(--space-6) auto; position: relative;">
+                <input type="text" id="blogSearch" placeholder="Search insights (e.g. SEO, IoT, Conversions)..." 
+                       style="width: 100%; padding: var(--space-3) var(--space-4); padding-left: 2.5rem; border: 1px solid var(--bg-surface-dark); border-radius: var(--radius-md); font-family: var(--font-primary); font-size: var(--text-base); background: var(--bg-surface); color: var(--text-primary); outline: none;">
+                <i class="fa-solid fa-search" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+            </div>
+            <div class="flex gap-4" style="justify-content: center; flex-wrap: wrap;">
+                <button class="btn btn-primary">All Posts</button>
+                <button class="btn btn-outline">Web Development</button>
+                <button class="btn btn-outline">Lead Generation</button>
+                <button class="btn btn-outline">Hardware & IoT</button>
+                <button class="btn btn-outline">SEO</button>
+            </div>
+        </div>
+
+        <div class="container grid grid-3">
+            <!-- Article 1 -->
+            <article class="blog-card">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Code on screen" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>Web Development</span>
+                        <span>•</span>
+                        <span>5 min read</span>
+                    </div>
+                    <h3 class="blog-title">Why Your Fancy 3D Portfolio Is Losing You Clients</h3>
+                    <p class="blog-excerpt">The difference between an award-winning creative portfolio and a high-converting lead generation platform.</p>
+                    <a href="why-3d-portfolios-lose-clients.html" class="text-primary hover-text-primary" style="font-weight: 500; font-size: var(--text-sm);">Read Article <i class="fa-solid fa-arrow-right" style="margin-left: 0.25rem;"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="blog-card">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Circuit board" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>Hardware & IoT</span>
+                        <span>•</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h3 class="blog-title">Bridging ESP32 with Next-Gen Web Dashboards</h3>
+                    <p class="blog-excerpt">How my Electrical Engineering background translates to building full-stack hardware-to-cloud architectures.</p>
+                    <a href="hardware-iot-dashboards.html" class="text-primary hover-text-primary" style="font-weight: 500; font-size: var(--text-sm);">Read Article <i class="fa-solid fa-arrow-right" style="margin-left: 0.25rem;"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="blog-card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Analytics dashboard" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>Lead Generation</span>
+                        <span>•</span>
+                        <span>6 min read</span>
+                    </div>
+                    <h3 class="blog-title">The 18-Minute Conversion Rule for Local Businesses</h3>
+                    <p class="blog-excerpt">Why your local service business needs to route website traffic directly to WhatsApp instead of email forms.</p>
+                    <a href="18-minute-conversion-rule.html" class="text-primary hover-text-primary" style="font-weight: 500; font-size: var(--text-sm);">Read Article <i class="fa-solid fa-arrow-right" style="margin-left: 0.25rem;"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 4 -->
+            <article class="blog-card">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="JS V8 Engine" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>Web Development</span>
+                        <span>•</span>
+                        <span>7 min read</span>
+                    </div>
+                    <h3 class="blog-title">What is the JS V8 Engine?</h3>
+                    <p class="blog-excerpt">Understanding how JavaScript runs under the hood to write highly-optimized web applications.</p>
+                    <a href="what-is-js-v8-engine.html" class="text-primary hover-text-primary" style="font-weight: 500; font-size: var(--text-sm);">Read Article <i class="fa-solid fa-arrow-right" style="margin-left: 0.25rem;"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 5 -->
+            <article class="blog-card">
+                <img src="https://images.unsplash.com/photo-1608564697071-ddf911d5b31d?auto=format&fit=crop&w=600&q=80" alt="Arduino vs Raspberry Pi" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>Hardware & IoT</span>
+                        <span>•</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h3 class="blog-title">Arduino vs Raspberry Pi: The Complete Guide</h3>
+                    <p class="blog-excerpt">A deep dive into microcontrollers vs microprocessors, helping you choose the right hardware for your IoT projects.</p>
+                    <a href="arduino-vs-raspberry-pi.html" class="text-primary hover-text-primary" style="font-weight: 500; font-size: var(--text-sm);">Read Article <i class="fa-solid fa-arrow-right" style="margin-left: 0.25rem;"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 6 -->
+            <article class="blog-card">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" alt="Business Growth" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>Lead Generation</span>
+                        <span>•</span>
+                        <span>5 min read</span>
+                    </div>
+                    <h3 class="blog-title">How a Website Actually Increases Your Business</h3>
+                    <p class="blog-excerpt">Discover how a strategically engineered website acts as a 24/7 automated sales representative.</p>
+                    <a href="how-website-increases-business.html" class="text-primary hover-text-primary" style="font-weight: 500; font-size: var(--text-sm);">Read Article <i class="fa-solid fa-arrow-right" style="margin-left: 0.25rem;"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 7 -->
+            <article class="blog-card">
+                <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" alt="Minimalist workspace" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>Web Development</span>
+                        <span>•</span>
+                        <span>4 min read</span>
+                    </div>
+                    <h3 class="blog-title">Why Simple Sites Have the Best UX</h3>
+                    <p class="blog-excerpt">Discover why minimalist, fast-loading websites provide the highest conversion rates and best User Experience.</p>
+                    <a href="why-simple-sites-have-best-ux.html" class="text-primary hover-text-primary" style="font-weight: 500; font-size: var(--text-sm);">Read Article <i class="fa-solid fa-arrow-right" style="margin-left: 0.25rem;"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 8 -->
+            <article class="blog-card">
+                <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&w=600&q=80" alt="Vanilla JS Code" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>Web Development</span>
+                        <span>•</span>
+                        <span>6 min read</span>
+                    </div>
+                    <h3 class="blog-title">The Power of Vanilla JavaScript</h3>
+                    <p class="blog-excerpt">Why writing pure Vanilla JavaScript often outperforms heavy frameworks like React and Angular for business websites.</p>
+                    <a href="the-power-of-vanilla-javascript.html" class="text-primary hover-text-primary" style="font-weight: 500; font-size: var(--text-sm);">Read Article <i class="fa-solid fa-arrow-right" style="margin-left: 0.25rem;"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 9 -->
+            <article class="blog-card">
+                <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8f2c293?auto=format&fit=crop&w=600&q=80" alt="Local SEO concept" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>Lead Generation</span>
+                        <span>•</span>
+                        <span>6 min read</span>
+                    </div>
+                    <h3 class="blog-title">SEO Basics for Local Businesses</h3>
+                    <p class="blog-excerpt">How to dominate your local Google Maps pack using Schema markup, NAP consistency, and high-performance websites.</p>
+                    <a href="seo-basics-for-local-businesses.html" class="text-primary hover-text-primary" style="font-weight: 500; font-size: var(--text-sm);">Read Article <i class="fa-solid fa-arrow-right" style="margin-left: 0.25rem;"></i></a>
+                </div>
+            </article>
+
+            <!-- Article 10 -->
+            <article class="blog-card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Data graph representing revenue" class="blog-image">
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span>Web Development</span>
+                        <span>•</span>
+                        <span>5 min read</span>
+                    </div>
+                    <h3 class="blog-title">Why Website Speed is Revenue</h3>
+                    <p class="blog-excerpt">Data proves that every second of loading delay costs your business 20% in conversion drops. Learn the engineering behind fast sites.</p>
+                    <a href="why-speed-is-revenue.html" class="text-primary hover-text-primary" style="font-weight: 500; font-size: var(--text-sm);">Read Article <i class="fa-solid fa-arrow-right" style="margin-left: 0.25rem;"></i></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer style="background: var(--bg-surface-dark); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--bg-surface);">
+        <div class="container grid footer-grid" style="grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-8);">
+            <div>
+                <a href="../index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-primary); display: block; margin-bottom: var(--space-4);">Ramzan<span class="text-accent">Digital</span></a>
+                <p class="text-secondary" style="font-size: var(--text-sm); max-width: 300px; margin-bottom: var(--space-6);">Engineering business architectures. We build high-performance websites and lead generation funnels tailored for scalable growth.</p>
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/in/muhammad-ramzan-bb63233aa/" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-linkedin" style="font-size: 1.5rem;"></i></a>
+                    <a href="https://github.com/mramzan579" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-github" style="font-size: 1.5rem;"></i></a>
+                    <a href="mailto:mramzan147800@gmail.com" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-solid fa-envelope" style="font-size: 1.5rem;"></i></a>
+                    <a href="https://wa.me/923491943858" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Company</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><a href="../about.html" class="text-secondary">Meet The Founder</a></li>
+                    <li><a href="../services.html" class="text-secondary">Our Solutions</a></li>
+                    <li><a href="../contact.html" class="text-secondary">Book Discovery</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Work</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><a href="../case-studies/index.html" class="text-secondary">Case Studies</a></li>
+                    <li><a href="../industries/index.html" class="text-secondary">Industries Served</a></li>
+                    <li><a href="index.html" class="text-secondary">Insights & Tech</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Legal</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><span class="text-secondary">Privacy Policy</span></li>
+                    <li><span class="text-secondary">Terms of Service</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container text-center" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: var(--space-8);">
+            <p class="text-muted" style="font-size: var(--text-sm);">&copy; <span id="year"></span> Ramzan Digital. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Simple Blog Search Logic
+        document.getElementById('blogSearch').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.blog-card');
+            cards.forEach(card => {
+                const title = card.querySelector('.blog-title').textContent.toLowerCase();
+                const excerpt = card.querySelector('.blog-excerpt').textContent.toLowerCase();
+                if (title.includes(query) || excerpt.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

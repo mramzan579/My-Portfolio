@@ -1,0 +1,171 @@
+/* 
+ * Core Styles & Component Library
+ * Requires: variables.css, reset.css 
+ */
+
+body {
+    font-family: var(--font-primary);
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-primary);
+}
+
+/* Typography Utilities */
+.text-center { text-align: center; }
+.text-accent { color: var(--color-accent); }
+.text-secondary { color: var(--text-secondary); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-8 { margin-bottom: var(--space-8); }
+.mt-4 { margin-top: var(--space-4); }
+
+/* Layout Utilities */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.section {
+    padding: var(--space-16) 0;
+}
+
+.grid {
+    display: grid;
+    gap: var(--space-8);
+}
+
+.grid-2 { grid-template-columns: repeat(1, 1fr); }
+.grid-3 { grid-template-columns: repeat(1, 1fr); }
+
+@media (min-width: 768px) {
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-4 { gap: var(--space-4); }
+.gap-8 { gap: var(--space-8); }
+
+/* Components: Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: var(--transition-base);
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--text-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--text-light);
+}
+
+/* Section Titles */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+
+.section-subtitle {
+    display: inline-block;
+    color: var(--color-accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-2);
+}
+
+.section-title {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .section-title { font-size: var(--text-4xl); }
+}
+
+/* --- Responsive Utility Classes --- */
+.hide-on-mobile { display: block; }
+.hide-on-desktop { display: none; }
+
+.hover-text-primary:hover { color: var(--color-primary) !important; transition: var(--transition-fast); }
+.flex-column { display: flex; flex-direction: column; }
+
+/* Global Header Mobile Tweaks */
+.nav-links { display: flex; gap: 2rem; font-weight: 500; }
+
+@media (max-width: 768px) {
+    .hide-on-mobile { display: none !important; }
+    .hide-on-desktop { display: block !important; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr !important; }
+    .nav-links { display: none; } /* Standard hamburger hide for mobile, simplified here */
+    .hero-title { font-size: 2.5rem !important; }
+    .footer-grid { grid-template-columns: 1fr !important; gap: var(--space-8); }
+}
+
+/* --- Animated Profile Image --- */
+.profile-wrapper {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+}
+.profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--bg-main);
+    position: relative;
+    z-index: 2;
+}
+.profile-pulse {
+    position: absolute;
+    top: -10px; left: -10px; right: -10px; bottom: -10px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--color-accent), transparent);
+    z-index: 1;
+    animation: spin-pulse 4s linear infinite;
+}
+@keyframes spin-pulse {
+    0% { transform: rotate(0deg) scale(1); opacity: 0.5; }
+    50% { transform: rotate(180deg) scale(1.05); opacity: 0.8; }
+    100% { transform: rotate(360deg) scale(1); opacity: 0.5; }
+}
+
+

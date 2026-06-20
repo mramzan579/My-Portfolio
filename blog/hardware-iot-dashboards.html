@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridging ESP32 with Next-Gen Web Dashboards | Ramzan Digital</title>
+    <meta name="description" content="How my Electrical Engineering background translates to building full-stack hardware-to-cloud architectures.">
+    
+    <!-- Open Graph / Social Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Bridging ESP32 with Next-Gen Web Dashboards">
+    <meta property="og:description" content="Moving from C++ microcontrollers to cloud-scale React dashboards. The true power of full-stack engineering.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS System -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .article-body { font-family: 'Merriweather', serif; font-size: 1.125rem; line-height: 1.8; color: #334155; max-width: 720px; margin: 0 auto; }
+        .article-body p { margin-bottom: 2rem; }
+        .article-body h2 { font-family: var(--font-heading); margin-top: 3rem; margin-bottom: 1.5rem; }
+        .author-box { display: flex; align-items: center; gap: 1rem; padding: 1.5rem 0; border-top: 1px solid var(--bg-surface-dark); border-bottom: 1px solid var(--bg-surface-dark); margin: 2rem 0; }
+        .author-img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+        .social-share { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 1rem; }
+        .share-btn { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--bg-surface); color: var(--text-secondary); transition: all 0.2s; }
+        .share-btn:hover { background: var(--color-primary); color: white; }
+    </style>
+</head>
+<body>
+    <header style="padding: var(--space-4) 0; border-bottom: 1px solid var(--bg-surface-dark);">
+        <div class="container flex justify-between items-center">
+            <a href="../index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-primary);">Ramzan<span class="text-accent">Digital</span></a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../services.html">Services</a>
+                <a href="../case-studies/index.html">Case Studies</a>
+                <a href="../industries/index.html">Industries</a>
+                <a href="index.html" style="color: var(--color-accent);">Blog</a>
+            </nav>
+            <a href="../contact.html" class="btn btn-outline hide-on-mobile">Free Audit</a>
+        </div>
+    </header>
+
+    <main style="padding-top: var(--space-12); padding-bottom: var(--space-16);">
+        <div class="container" style="max-width: 900px;">
+            <div style="text-align: center; margin-bottom: var(--space-8);">
+                <span style="color: var(--color-accent); font-weight: 600; text-transform: uppercase; font-size: 0.875rem; letter-spacing: 1px;">Hardware & IoT</span>
+                <h1 style="font-size: 3.5rem; line-height: 1.1; margin: 1rem 0; color: #0f172a;">Bridging ESP32 with Next-Gen Web Dashboards</h1>
+                <p style="font-size: 1.25rem; color: var(--text-secondary); font-family: 'Merriweather', serif; font-style: italic;">How my Electrical Engineering background translates to building full-stack hardware-to-cloud architectures.</p>
+            </div>
+            
+            <div class="author-box" style="max-width: 720px; margin-left: auto; margin-right: auto;">
+                <img src="../WhatsApp Image 2025-10-24 at 21.31.19_d3be8b9f.jpg" alt="Muhammad Ramzan" class="author-img" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80'">
+                <div style="flex-grow: 1;">
+                    <h4 style="margin: 0; font-size: 1rem;">Muhammad Ramzan</h4>
+                    <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary);">Founder, Ramzan Digital • Business Architect</p>
+                </div>
+                <div style="text-align: right; font-size: 0.875rem; color: var(--text-secondary);">
+                    <div>Oct 25, 2024</div>
+                    <div>8 min read</div>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" style="width: 100%; border-radius: var(--radius-lg); margin-bottom: var(--space-12);" alt="Circuit board">
+        </div>
+
+        <div class="container" style="max-width: 900px; display: flex; gap: 3rem;">
+            <div class="hide-on-mobile" style="width: 60px;">
+                <div class="social-share">
+                    <a href="#" class="share-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" class="share-btn"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="share-btn"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+
+            <div class="article-body">
+                <p>Most web developers start by learning HTML, CSS, and React. They understand how to build UI, but they often struggle when they need to interact with the physical world. Coming from an Electrical Engineering background, my journey was the exact opposite.</p>
+                
+                <p>I started with C, C++, MATLAB, Proteus, and microcontrollers like Arduino and ESP32. I learned how to manage memory at the byte level, how to read raw sensor data, and how to communicate via I2C and SPI.</p>
+
+                <h2>The Hardware to Cloud Pipeline</h2>
+                <p>The magic happens when you bridge these two worlds. Imagine a manufacturing plant that needs to monitor the temperature of 50 different machines in real-time. You can't just use a WordPress template for that.</p>
+                
+                <p>You need an <strong>ESP32</strong> reading sensor data, sending lightweight MQTT payloads over WiFi to an <strong>AWS Cloud backend</strong>, which is then consumed by a blazing fast <strong>React.js Web Dashboard</strong> updating at 60 frames per second.</p>
+
+                <blockquote>
+                    "A true engineering architecture doesn't stop at the browser. It connects the physical reality to the digital interface."
+                </blockquote>
+
+                <h2>Why Low-Level Knowledge Matters in Web Dev</h2>
+                <p>When you know how a processor handles a C++ pointer, you naturally write more efficient JavaScript. You understand that pulling 5MB of libraries for a simple animation is computationally expensive. You prioritize clean, vanilla logic.</p>
+                
+                <p>This is why Ramzan Digital doesn't just build "websites". We engineer systems. Whether it is a lead generation funnel or an IoT dashboard, the underlying philosophy remains the same: Maximum efficiency, zero bloat, and highly scalable architecture.</p>
+                
+                <div style="margin-top: 3rem; padding: 2rem; background: var(--bg-surface); border-radius: var(--radius-md); text-align: center;">
+                    <h3 style="margin-bottom: 1rem;">Need a custom IoT dashboard or Web App?</h3>
+                    <a href="../contact.html" class="btn btn-primary">Book a Free Discovery Call</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer style="background: var(--bg-surface-dark); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--bg-surface);">
+        <div class="container grid footer-grid" style="grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-8);">
+            <div>
+                <a href="../index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-primary); display: block; margin-bottom: var(--space-4);">Ramzan<span class="text-accent">Digital</span></a>
+                <p class="text-secondary" style="font-size: var(--text-sm); max-width: 300px; margin-bottom: var(--space-6);">Engineering business architectures. We build high-performance websites and lead generation funnels tailored for scalable growth.</p>
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/in/muhammad-ramzan-bb63233aa/" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-linkedin" style="font-size: 1.5rem;"></i></a>
+                    <a href="https://github.com/mramzan579" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-github" style="font-size: 1.5rem;"></i></a>
+                    <a href="mailto:mramzan147800@gmail.com" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-solid fa-envelope" style="font-size: 1.5rem;"></i></a>
+                    <a href="https://wa.me/923491943858" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Company</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><a href="../about.html" class="text-secondary">Meet The Founder</a></li>
+                    <li><a href="../services.html" class="text-secondary">Our Solutions</a></li>
+                    <li><a href="../contact.html" class="text-secondary">Book Discovery</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container text-center" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: var(--space-8);">
+            <p class="text-muted" style="font-size: var(--text-sm); margin-bottom: 0.5rem;"><a href="../privacy.html" class="hover-text-primary" style="margin-right: 1rem;">Privacy Policy</a><a href="../terms.html" class="hover-text-primary">Terms of Service</a></p>
+            <p class="text-muted" style="font-size: var(--text-sm);">&copy; <span id="year"></span> Ramzan Digital. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
