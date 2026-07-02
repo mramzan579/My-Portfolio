@@ -44,6 +44,7 @@
 
     <style>
         /* Forbes-style minimalist typography */
+        html { scroll-behavior: smooth; }
         .article-content {
             font-family: var(--font-primary);
             font-size: 1.125rem;
@@ -58,6 +59,15 @@
             font-size: 2rem;
             margin-top: 3rem;
             margin-bottom: 1.5rem;
+            scroll-margin-top: 100px;
+        }
+        .article-content h3 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            scroll-margin-top: 100px;
         }
         .article-content p { margin-bottom: 1.5rem; }
         .article-content pre {
@@ -73,6 +83,94 @@
             color: var(--color-accent);
         }
         
+        /* Table of Contents */
+        .toc-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--bg-surface-dark);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin-bottom: var(--space-8);
+        }
+        .toc-box h4 { margin-bottom: 1rem; font-size: 1.2rem; }
+        .toc-list { list-style: none; padding: 0; margin: 0; }
+        .toc-list li { margin-bottom: 0.5rem; }
+        .toc-list a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .toc-list a:hover { color: var(--color-primary); }
+
+        /* Term Explanations (Tooltip) */
+        .term {
+            position: relative;
+            cursor: help;
+            border-bottom: 1px dashed var(--color-primary);
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+        .term:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-surface-dark);
+            color: var(--text-light);
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            white-space: nowrap;
+            z-index: 100;
+            box-shadow: var(--shadow-lg);
+            pointer-events: none;
+        }
+
+        /* Next / Prev Chapter Nav */
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--space-8);
+            gap: 1rem;
+        }
+        .chapter-btn {
+            flex: 1;
+            padding: 1.5rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--bg-surface-dark);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            transition: border-color 0.3s ease;
+        }
+        .chapter-btn:hover { border-color: var(--color-primary); }
+        .chapter-btn .label { display: block; font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+        .chapter-btn .title { display: block; font-size: 1.2rem; color: var(--text-main); font-weight: 600; }
+
+        /* Scroll to Top Button */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--color-primary);
+            color: var(--text-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+        #scrollTopBtn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        #scrollTopBtn:hover { transform: translateY(-5px); }
+
         /* Author Bio Block */
         .author-box {
             background: var(--bg-surface);
@@ -97,7 +195,7 @@
 <body>
 
     <!-- Header Navigation -->
-    <header style="padding: var(--space-4) 0; border-bottom: 1px solid var(--bg-surface-dark);">
+    <header style="padding: var(--space-4) 0; border-bottom: 1px solid var(--bg-surface-dark); position: sticky; top: 0; background: var(--bg-main); z-index: 999;">
         <div class="container flex justify-between items-center">
             <a href="../index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--text-main);">
                 Muhammad<span class="text-accent">Ramzan</span>
@@ -134,11 +232,24 @@
 
             <!-- Body Content -->
             <div class="article-content">
-                <p><strong>Here is the introduction paragraph. Make it punchy and clear. Explain exactly what the reader will learn in this chapter of the playlist.</strong></p>
                 
-                <h2>1. Core Concepts</h2>
+                <!-- Table of Contents -->
+                <div class="toc-box">
+                    <h4>Table of Contents</h4>
+                    <ul class="toc-list">
+                        <li><a href="#section-1">1. Introduction & Core Concepts</a></li>
+                        <li><a href="#section-2">2. Technical Implementation</a></li>
+                        <li><a href="#section-3">3. Advanced Architectures</a></li>
+                    </ul>
+                </div>
+
+                <h2 id="section-1">1. Introduction & Core Concepts</h2>
+                <p><strong>Here is the introduction paragraph. Make it punchy and clear. Explain exactly what the reader will learn in this chapter of the playlist.</strong></p>
                 <p>This is standard text. Here is how you write inline code: <code>print("Hello World")</code>.</p>
                 
+                <p>If you need to explain a complex engineering term, use the tooltip feature like this: The <span class="term" data-tooltip="A contiguous block of memory storing elements of the same data type.">Array</span> structure is fundamental in C.</p>
+                
+                <h2 id="section-2">2. Technical Implementation</h2>
                 <pre><code>
 #include &lt;stdio.h&gt;
 int main() {
@@ -147,7 +258,7 @@ int main() {
 }
                 </code></pre>
 
-                <h2>2. Implementation</h2>
+                <h2 id="section-3">3. Advanced Architectures</h2>
                 <p>Explain the architecture and the logic. Write like you are teaching yourself.</p>
             </div>
 
@@ -158,6 +269,18 @@ int main() {
                     <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-brands fa-twitter"></i> Twitter</a>
                     <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
                 </div>
+            </div>
+
+            <!-- Chapter Navigation -->
+            <div class="chapter-nav">
+                <a href="#" class="chapter-btn" style="text-align: left;">
+                    <span class="label"><i class="fa-solid fa-arrow-left"></i> Previous Chapter</span>
+                    <span class="title">Setting up the Python Environment</span>
+                </a>
+                <a href="#" class="chapter-btn" style="text-align: right;">
+                    <span class="label">Next Chapter <i class="fa-solid fa-arrow-right"></i></span>
+                    <span class="title">Functions & Object-Oriented Logic</span>
+                </a>
             </div>
 
             <!-- Author Box (Forbes Style) -->
@@ -192,11 +315,13 @@ int main() {
                         crossorigin="anonymous"
                         async>
                 </script>
-
             </div>
 
         </div>
     </article>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
 
     <!-- Global Footer -->
     <footer style="background: var(--bg-surface-dark); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--bg-surface);">
@@ -239,6 +364,19 @@ int main() {
     <script src="../js/main.js"></script>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Scroll to Top Logic
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add("visible");
+            } else {
+                scrollTopBtn.classList.remove("visible");
+            }
+        });
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
     </script>
 </body>
 </html>
