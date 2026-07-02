@@ -3,17 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact & Discovery | Ramzan Digital</title>
-    <meta name="description" content="Book a discovery call and let's discuss how we can build a scalable digital architecture for your business.">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Icons & Intl Tel Input -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    <title>Subscribe & Contact | Muhammad Ramzan</title>
     
     <!-- CSS System -->
     <link rel="stylesheet" href="css/reset.css">
@@ -21,164 +11,90 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        .timeline { display: flex; flex-direction: column; gap: var(--space-6); position: relative; padding-left: var(--space-8); }
-        .timeline::before { content: ''; position: absolute; left: 11px; top: 0; bottom: 0; width: 2px; background: var(--bg-surface-dark); }
-        .timeline-step { position: relative; }
-        .timeline-step::before {
-            content: ''; position: absolute; left: calc(var(--space-8) * -1); top: 5px; width: 24px; height: 24px;
-            background: var(--bg-main); border: 2px solid var(--color-accent); border-radius: 50%; z-index: 1;
-        }
-        .form-group { margin-bottom: var(--space-4); }
-        .form-group label { display: block; margin-bottom: var(--space-2); font-weight: 500; font-size: var(--text-sm); }
-        .form-control {
-            width: 100%; padding: var(--space-3); border: 1px solid #e2e8f0; border-radius: var(--radius-md);
-            font-family: var(--font-primary); font-size: var(--text-base); 
-            background: #ffffff !important;
-            color: #0f172a !important; /* Absolute fix for text visibility */
-        }
-        .form-control::placeholder {
-            color: #94a3b8 !important;
-        }
-        .form-control:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 3px rgba(59,130,246,0.1); }
-    </style>
-
-    <!-- Analytics Hooks Prep (Do not connect yet)
-    <script>
-        // function trackLeadFormSubmission(leadData) { ... }
-    </script>
-    -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Header Navigation -->
     <header style="padding: var(--space-4) 0; border-bottom: 1px solid var(--bg-surface-dark);">
         <div class="container flex justify-between items-center">
-            <a href="index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-primary);">
-                Ramzan<span class="text-accent">Digital</span>
+            <a href="index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--text-main);">
+                Muhammad<span class="text-accent">Ramzan</span>
             </a>
             <nav class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="case-studies/index.html">Case Studies</a>
-                <a href="industries/index.html">Industries</a>
-                <a href="blog/index.html">Blog</a>
+                <a href="blog/index.html">Playlists</a>
+                <a href="about.html">About</a>
             </nav>
+            <a href="contact.html" class="btn btn-outline hide-on-mobile" style="border-color: var(--color-accent); color: var(--color-accent);">Subscribe</a>
         </div>
     </header>
 
-    <section class="section">
-        <div class="container grid" style="grid-template-columns: 1fr 1fr; gap: var(--space-12);">
-            
-            <!-- Left: Timeline & Authority -->
-            <div>
-                <div style="margin-bottom: var(--space-12);">
-                    <h1 class="section-title">Start Your Project</h1>
-                    <p class="text-secondary" style="font-size: var(--text-lg);">Fill out the form to help us understand your needs. We'll review your details and prepare for our discovery call.</p>
-                </div>
+    <section class="section" style="padding-top: var(--space-12);">
+        <div class="container text-center" style="margin-bottom: var(--space-12);">
+            <span class="section-subtitle">Join The Journey</span>
+            <h1 class="section-title">Subscribe to the Newsletter</h1>
+            <p class="text-secondary" style="max-width: 600px; margin: 0 auto;">Get my latest engineering notes, Python tutorials, and AI research delivered straight to your inbox. No spam, ever.</p>
+        </div>
 
-                <div style="background: var(--bg-surface); padding: var(--space-8); border-radius: var(--radius-lg);">
-                    <h3 style="margin-bottom: var(--space-6);">What Happens Next?</h3>
-                    <div class="timeline">
-                        <div class="timeline-step">
-                            <h4 style="margin-bottom: 0.25rem;">1. Submit Form</h4>
-                            <p class="text-secondary text-sm">Provide your project details and goals.</p>
-                        </div>
-                        <div class="timeline-step">
-                            <h4 style="margin-bottom: 0.25rem;">2. Discovery Call</h4>
-                            <p class="text-secondary text-sm">A 30-min consultation to align on architecture.</p>
-                        </div>
-                        <div class="timeline-step">
-                            <h4 style="margin-bottom: 0.25rem;">3. Proposal</h4>
-                            <p class="text-secondary text-sm">Receive a detailed scope, timeline, and ROI mapping.</p>
-                        </div>
-                        <div class="timeline-step">
-                            <h4 style="margin-bottom: 0.25rem;">4. Development</h4>
-                            <p class="text-secondary text-sm">We build your high-converting digital platform.</p>
-                        </div>
-                        <div class="timeline-step">
-                            <h4 style="margin-bottom: 0.25rem;">5. Launch & Scale</h4>
-                            <p class="text-secondary text-sm">Deployment, training, and ongoing lead generation.</p>
-                        </div>
-                    </div>
+        <div class="container grid grid-2" style="gap: var(--space-12); align-items: flex-start;">
+            
+            <!-- Left Info -->
+            <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: var(--space-4);">What to Expect?</h3>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-bottom: var(--space-8);">
+                    <li style="display: flex; gap: 1rem;"><i class="fa-solid fa-terminal text-accent" style="margin-top: 0.25rem;"></i> <div><strong>Technical Deep Dives:</strong> Detailed breakdowns of Python scripts and C logic.</div></li>
+                    <li style="display: flex; gap: 1rem;"><i class="fa-solid fa-robot text-accent" style="margin-top: 0.25rem;"></i> <div><strong>AI Experiments:</strong> Real-world applications of AI and machine learning models.</div></li>
+                    <li style="display: flex; gap: 1rem;"><i class="fa-solid fa-microchip text-accent" style="margin-top: 0.25rem;"></i> <div><strong>Systems Engineering:</strong> Hardware projects and micro-controller simulations.</div></li>
+                </ul>
+
+                <h3 style="font-size: 1.5rem; margin-bottom: var(--space-4);">Direct Contact</h3>
+                <p class="text-secondary" style="margin-bottom: var(--space-4);">For open-source collaborations or mentorship, connect with me here:</p>
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/in/muhammad-ramzan-bb63233aa/" target="_blank" class="btn btn-outline"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://wa.me/923491943858" target="_blank" class="btn btn-outline"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
                 </div>
             </div>
 
-            <!-- Right: The Lead Qualification Engine -->
+            <!-- Right Form -->
             <div>
-                <!-- 
-                  Data hooks added for future CRM integration (e.g., data-score-budget) 
-                  Action goes to a placeholder webhook / endpoint
-                -->
-                <form id="leadForm" action="https://formspree.io/f/xkolwwzk" method="POST" style="background: var(--bg-main); padding: var(--space-8); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border: 1px solid var(--bg-surface-dark);">
+                <form id="leadForm" action="https://formspree.io/f/xkolwwzk" method="POST" style="background: var(--bg-surface); padding: var(--space-8); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border: 1px solid var(--bg-surface-dark);">
                     
-                    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-bottom: 0;">
-                        <div class="form-group">
-                            <label>Full Name *</label>
-                            <input type="text" class="form-control" required placeholder="John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label>Email Address *</label>
-                            <input type="email" class="form-control" required placeholder="john@company.com">
-                        </div>
+                    <input type="hidden" name="type" value="Newsletter / Contact Form">
+                    
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: var(--text-sm);">Full Name *</label>
+                        <input type="text" name="name" class="form-control" style="width: 100%; padding: var(--space-3); border: 1px solid #e2e8f0; border-radius: var(--radius-md); background: #ffffff !important; color: #0f172a !important;" required placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: var(--text-sm);">Email Address *</label>
+                        <input type="email" name="email" class="form-control" style="width: 100%; padding: var(--space-3); border: 1px solid #e2e8f0; border-radius: var(--radius-md); background: #ffffff !important; color: #0f172a !important;" required placeholder="john@company.com">
                     </div>
 
-                    <div class="form-group" style="position: relative;">
-                        <label>WhatsApp Number *</label>
-                        <!-- Intl Tel Input attaches here -->
-                        <input type="tel" id="whatsapp-input" name="whatsapp" class="form-control" required>
+                    <div class="form-group" style="margin-bottom: 1rem; position: relative;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: var(--text-sm);">WhatsApp Number (Optional)</label>
+                        <input type="tel" id="whatsapp-input" name="whatsapp" class="form-control" style="width: 100%; padding: var(--space-3); border: 1px solid #e2e8f0; border-radius: var(--radius-md); background: #ffffff !important; color: #0f172a !important;">
                         <span class="form-error-msg"></span>
                     </div>
 
-                    <div class="form-group">
-                        <label>Country *</label>
-                        <select class="form-control" id="country-select" required>
-                            <option value="">Select Country</option>
-                            <option value="US">United States</option>
-                            <option value="UK">United Kingdom</option>
-                            <option value="CA">Canada</option>
-                            <option value="AU">Australia</option>
-                            <option value="AE">United Arab Emirates</option>
-                            <option value="SA">Saudi Arabia</option>
-                            <option value="PK">Pakistan</option>
-                            <!-- Note: Israel deliberately excluded per requirements -->
-                            <option value="OTHER">Other</option>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: var(--text-sm);">What topics interest you most?</label>
+                        <select class="form-control" name="interests" style="width: 100%; padding: var(--space-3); border: 1px solid #e2e8f0; border-radius: var(--radius-md); background: #ffffff !important; color: #0f172a !important;" required>
+                            <option value="">Select an interest</option>
+                            <option value="Python & AI">Python & AI</option>
+                            <option value="Systems & Hardware">Systems & Hardware</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="All of the above">All of the above</option>
                         </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Project Budget (Lead Scoring Prep) *</label>
-                        <select class="form-control" name="budget" required onchange="this.setAttribute('data-score-budget', this.selectedIndex)">
-                            <option value="">Select Budget Range</option>
-                            <option value="under_500">Under $500</option>
-                            <option value="500_1000">$500 - $1,000</option>
-                            <option value="1000_3000">$1,000 - $3,000</option>
-                            <option value="custom">Custom / Enterprise</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Timeline *</label>
-                        <select class="form-control" name="urgency" required onchange="this.setAttribute('data-score-urgency', this.selectedIndex)">
-                            <option value="">Expected Launch</option>
-                            <option value="urgent">Urgent (ASAP)</option>
-                            <option value="1_month">Within 1 Month</option>
-                            <option value="flexible">Flexible</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Project Details</label>
-                        <textarea class="form-control" rows="4" placeholder="Briefly describe your business goals and what you need..."></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem; font-size: 1.1rem;">
-                        <span class="btn-text">Request Discovery Call <i class="fa-solid fa-arrow-right" style="margin-left: 0.5rem;"></i></span>
+                        <span class="btn-text">Subscribe to Newsletter <i class="fa-solid fa-arrow-right" style="margin-left: 0.5rem;"></i></span>
                         <div class="form-loader"></div>
                     </button>
                     <p class="text-center text-muted" style="margin-top: var(--space-4); font-size: var(--text-sm);">
-                        We usually respond within 24 hours.
+                        Your data is strictly private.
                     </p>
                 </form>
             </div>
@@ -188,48 +104,38 @@
 
     <!-- Global Footer -->
     <footer style="background: var(--bg-surface-dark); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--bg-surface);">
-        <div class="container grid footer-grid" style="grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-8);">
+        <div class="container grid footer-grid" style="grid-template-columns: 2fr 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-8);">
             <div>
-                <a href="index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-primary); display: block; margin-bottom: var(--space-4);">
-                    Ramzan<span class="text-accent">Digital</span>
+                <a href="index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--text-main); display: block; margin-bottom: var(--space-4);">
+                    Muhammad<span class="text-accent">Ramzan</span>
                 </a>
                 <p class="text-secondary" style="font-size: var(--text-sm); max-width: 300px; margin-bottom: var(--space-6);">
-                    Engineering business architectures. We build high-performance websites and lead generation funnels tailored for scalable growth.
+                    Teaching to Learn. An open-source notebook for Electrical Engineering, Python, and Systems Mastery.
                 </p>
                 <div class="flex gap-4">
                     <a href="https://www.linkedin.com/in/muhammad-ramzan-bb63233aa/" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-linkedin" style="font-size: 1.5rem;"></i></a>
                     <a href="https://github.com/mramzan579" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-github" style="font-size: 1.5rem;"></i></a>
                     <a href="mailto:mramzan147800@gmail.com" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-solid fa-envelope" style="font-size: 1.5rem;"></i></a>
-                    <a href="https://wa.me/923491943858" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i></a>
                 </div>
             </div>
             <div>
-                <h4 style="margin-bottom: var(--space-4);">Company</h4>
+                <h4 style="margin-bottom: var(--space-4);">Navigation</h4>
                 <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
-                    <li><a href="about.html" class="text-secondary">Meet The Founder</a></li>
-                    <li><a href="services.html" class="text-secondary">Our Solutions</a></li>
-                    <li><a href="contact.html" class="text-secondary">Book Discovery</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 style="margin-bottom: var(--space-4);">Work</h4>
-                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
-                    <li><a href="case-studies/index.html" class="text-secondary">Case Studies</a></li>
-                    <li><a href="industries/index.html" class="text-secondary">Industries Served</a></li>
-                    <li><a href="blog/index.html" class="text-secondary">Insights & Tech</a></li>
+                    <li><a href="index.html" class="text-secondary">Home</a></li>
+                    <li><a href="about.html" class="text-secondary">About Me</a></li>
+                    <li><a href="blog/index.html" class="text-secondary">Playlists / Blog</a></li>
                 </ul>
             </div>
             <div>
                 <h4 style="margin-bottom: var(--space-4);">Legal</h4>
                 <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
-                    <li><span class="text-secondary">Privacy Policy</span></li>
-                    <li><span class="text-secondary">Terms of Service</span></li>
+                    <li><a href="privacy.html" class="text-secondary">Privacy Policy</a></li>
+                    <li><a href="terms.html" class="text-secondary">Terms of Service</a></li>
                 </ul>
             </div>
         </div>
         <div class="container text-center" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: var(--space-8);">
-            <p class="text-muted" style="font-size: var(--text-sm); margin-bottom: 0.5rem;"><a href="privacy.html" class="hover-text-primary" style="margin-right: 1rem;">Privacy Policy</a><a href="terms.html" class="hover-text-primary">Terms of Service</a></p>
-            <p class="text-muted" style="font-size: var(--text-sm);">&copy; <span id="year"></span> Ramzan Digital. All rights reserved. Designed & Engineered by Muhammad Ramzan.</p>
+            <p class="text-muted" style="font-size: var(--text-sm);">&copy; <span id="year"></span> Muhammad Ramzan. All rights reserved.</p>
         </div>
     </footer>
 
@@ -239,8 +145,8 @@
             <div class="success-icon-wrap">
                 <i class="fa-solid fa-check"></i>
             </div>
-            <h2 style="margin-bottom: var(--space-2);">Application Received!</h2>
-            <p class="text-secondary" style="margin-bottom: var(--space-6);">Thank you for reaching out. Ramzan will review your project details and contact you via WhatsApp shortly to schedule your free Discovery Call.</p>
+            <h2 style="margin-bottom: var(--space-2);">Subscribed Successfully!</h2>
+            <p class="text-secondary" style="margin-bottom: var(--space-6);">Welcome to the journey! I've received your information and you will now get the latest engineering updates.</p>
             <button class="btn btn-primary" id="closeModalBtn" style="width: 100%; justify-content: center;">Awesome!</button>
         </div>
     </div>
