@@ -27,6 +27,7 @@
     <!-- CSS System -->
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Schema.org for Personal Brand / Blog -->
@@ -145,7 +146,10 @@
                 <input type="email" name="email" required placeholder="Enter your email address" style="padding: 1rem; border-radius: var(--radius-md); border: none; flex: 1; min-width: 250px; font-family: var(--font-body);">
                 <!-- Hidden fields to identify as newsletter -->
                 <input type="hidden" name="type" value="Newsletter Subscription">
-                <button type="submit" class="btn" style="background-color: var(--text-light); color: var(--color-primary); border: none;">Subscribe</button>
+                <button type="submit" class="btn" style="background-color: var(--text-light); color: var(--color-primary); border: none;">
+                    <span class="btn-text">Subscribe</span>
+                    <div class="form-loader"></div>
+                </button>
             </form>
         </div>
     </section>
@@ -187,7 +191,20 @@
         </div>
     </footer>
 
+    <!-- Success Modal -->
+    <div class="success-modal-overlay" id="successModal">
+        <div class="success-modal">
+            <div class="success-icon-wrap">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h2 style="margin-bottom: var(--space-2);">Subscribed!</h2>
+            <p class="text-secondary" style="margin-bottom: var(--space-6);">Thank you for joining the newsletter. You'll receive my latest engineering notes soon.</p>
+            <button class="btn btn-primary" id="closeModalBtn" style="width: 100%; justify-content: center;">Awesome!</button>
+        </div>
+    </div>
+
     <!-- Scripts -->
+    <script src="js/form-handler.js"></script>
     <script src="js/main.js"></script>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
