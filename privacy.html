@@ -3,62 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | Ramzan Digital</title>
-    
+    <title>Privacy Policy | Muhammad Ramzan</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: var(--font-primary);
+            font-size: var(--text-base);
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .legal-content h2 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .legal-content p, .legal-content ul {
+            margin-bottom: 1.5rem;
+        }
+        .legal-content ul {
+            list-style-type: disc;
+            padding-left: 2rem;
+        }
+    </style>
 </head>
-<body style="display: flex; flex-direction: column; min-height: 100vh;">
+<body>
 
+    <!-- Header Navigation -->
     <header style="padding: var(--space-4) 0; border-bottom: 1px solid var(--bg-surface-dark);">
         <div class="container flex justify-between items-center">
-            <a href="index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-primary);">Ramzan<span class="text-accent">Digital</span></a>
+            <a href="index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--text-main);">
+                Muhammad<span class="text-accent">Ramzan</span>
+            </a>
             <nav class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="case-studies/index.html">Case Studies</a>
-                <a href="industries/index.html">Industries</a>
-                <a href="blog/index.html">Blog</a>
+                <a href="blog/index.html">Playlists</a>
+                <a href="about.html">About</a>
             </nav>
-            <a href="contact.html" class="btn btn-outline hide-on-mobile">Free Audit</a>
+            <a href="contact.html" class="btn btn-outline hide-on-mobile">Subscribe</a>
         </div>
     </header>
 
-    <main style="flex-grow: 1; padding: var(--space-16) 0;">
-        <div class="container" style="max-width: 800px;">
-            <h1 class="section-title" style="margin-bottom: var(--space-8);">Privacy Policy</h1>
-            
-            <div style="color: var(--text-secondary); line-height: 1.8;">
-                <p style="margin-bottom: var(--space-4);">Last updated: November 2024</p>
-                
-                <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-2); color: var(--text-primary);">1. Information We Collect</h3>
-                <p style="margin-bottom: var(--space-4);">We collect information you provide directly to us when you fill out a form, request an audit, or communicate with us. This may include your name, email address, phone number, and business details.</p>
-                
-                <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-2); color: var(--text-primary);">2. How We Use Your Information</h3>
-                <p style="margin-bottom: var(--space-4);">We use the information we collect to provide, maintain, and improve our services, to process your requests, and to communicate with you regarding your projects and our architectural solutions.</p>
-                
-                <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-2); color: var(--text-primary);">3. Information Sharing</h3>
-                <p style="margin-bottom: var(--space-4);">We do not share your personal information with third parties except as necessary to provide our services or as required by law. Your data is kept strictly confidential within Ramzan Digital.</p>
-                
-                <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-2); color: var(--text-primary);">4. Contact Us</h3>
-                <p style="margin-bottom: var(--space-4);">If you have any questions about this Privacy Policy, please contact us at mramzan147800@gmail.com.</p>
+    <section class="section" style="padding-top: var(--space-12);">
+        <div class="container text-center" style="margin-bottom: var(--space-12);">
+            <h1 class="section-title">Privacy Policy</h1>
+            <p class="text-secondary">Last updated: July 2026</p>
+        </div>
+
+        <div class="container legal-content">
+            <p>Welcome to the personal engineering blog of Muhammad Ramzan. This Privacy Policy explains how we collect, use, and protect your information when you visit this website.</p>
+
+            <h2>1. Information We Collect</h2>
+            <p>Because this is a personal educational platform, we collect very minimal data. The only data we collect is what you voluntarily provide to us:</p>
+            <ul>
+                <li><strong>Newsletter & Contact Forms:</strong> If you subscribe to the newsletter or use the contact form, we collect your Name, Email Address, and optionally your WhatsApp Number. This data is securely processed via <strong>Formspree</strong>.</li>
+                <li><strong>Comments (Giscus):</strong> Our blog uses Giscus for discussions. When you leave a comment, you authenticate directly via your GitHub account. We do not store your passwords or GitHub data on our servers; it is handled entirely through GitHub Discussions.</li>
+            </ul>
+
+            <h2>2. How We Use Your Information</h2>
+            <p>We use the information we collect strictly for the following purposes:</p>
+            <ul>
+                <li>To send you educational newsletters, technical articles, and updates related to Python, Systems Architecture, and AI.</li>
+                <li>To respond to your direct inquiries, mentorship requests, or collaboration proposals.</li>
+            </ul>
+
+            <h2>3. Third-Party Services</h2>
+            <p>We utilize trusted third-party services to operate this platform:</p>
+            <ul>
+                <li><strong>Netlify:</strong> For website hosting and deployment.</li>
+                <li><strong>Formspree:</strong> For securely processing contact forms and newsletter subscriptions.</li>
+                <li><strong>GitHub (Giscus):</strong> For managing blog comments and discussions.</li>
+            </ul>
+            <p>These services have their own privacy policies governing how they handle data.</p>
+
+            <h2>4. Data Sharing and Protection</h2>
+            <p><strong>We do not sell, rent, or trade your personal information.</strong> Your email address and contact details are kept strictly confidential and are only used for the purposes you explicitly consented to (e.g., receiving the newsletter). We implement standard security measures to protect your data.</p>
+
+            <h2>5. Your Rights (Opt-Out)</h2>
+            <p>If you are subscribed to the newsletter, you have the right to opt out at any time. You can request the deletion of your data by contacting us directly.</p>
+
+            <h2>6. Contact Me</h2>
+            <p>If you have any questions about this Privacy Policy, please contact me directly at <a href="mailto:mramzan147800@gmail.com" class="text-accent">mramzan147800@gmail.com</a>.</p>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer style="background: var(--bg-surface-dark); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--bg-surface);">
+        <div class="container grid footer-grid" style="grid-template-columns: 2fr 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-8);">
+            <div>
+                <a href="index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--text-main); display: block; margin-bottom: var(--space-4);">
+                    Muhammad<span class="text-accent">Ramzan</span>
+                </a>
+                <p class="text-secondary" style="font-size: var(--text-sm); max-width: 300px; margin-bottom: var(--space-6);">
+                    Teaching to Learn. An open-source notebook for Electrical Engineering, Python, and Systems Mastery.
+                </p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Navigation</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><a href="index.html" class="text-secondary">Home</a></li>
+                    <li><a href="blog/index.html" class="text-secondary">Playlists / Blog</a></li>
+                    <li><a href="about.html" class="text-secondary">About Me</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Legal</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><a href="privacy.html" class="text-secondary">Privacy Policy</a></li>
+                    <li><a href="terms.html" class="text-secondary">Terms of Service</a></li>
+                </ul>
             </div>
         </div>
-    </main>
-
-    <footer style="background: var(--bg-surface-dark); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--bg-surface);">
         <div class="container text-center" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: var(--space-8);">
-            <p class="text-muted" style="font-size: var(--text-sm); margin-bottom: 0.5rem;">
-                <a href="privacy.html" class="hover-text-primary" style="margin-right: 1rem;">Privacy Policy</a>
-                <a href="terms.html" class="hover-text-primary">Terms of Service</a>
-            </p>
-            <p class="text-muted" style="font-size: var(--text-sm);">&copy; <span id="year"></span> Ramzan Digital. All rights reserved.</p>
+            <p class="text-muted" style="font-size: var(--text-sm);">&copy; <script>document.write(new Date().getFullYear())</script> Muhammad Ramzan. All rights reserved.</p>
         </div>
     </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
 </body>
 </html>

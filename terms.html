@@ -3,62 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service | Ramzan Digital</title>
-    
+    <title>Terms of Service | Muhammad Ramzan</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: var(--font-primary);
+            font-size: var(--text-base);
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .legal-content h2 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .legal-content p, .legal-content ul {
+            margin-bottom: 1.5rem;
+        }
+        .legal-content ul {
+            list-style-type: disc;
+            padding-left: 2rem;
+        }
+    </style>
 </head>
-<body style="display: flex; flex-direction: column; min-height: 100vh;">
+<body>
 
+    <!-- Header Navigation -->
     <header style="padding: var(--space-4) 0; border-bottom: 1px solid var(--bg-surface-dark);">
         <div class="container flex justify-between items-center">
-            <a href="index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--color-primary);">Ramzan<span class="text-accent">Digital</span></a>
+            <a href="index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--text-main);">
+                Muhammad<span class="text-accent">Ramzan</span>
+            </a>
             <nav class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="case-studies/index.html">Case Studies</a>
-                <a href="industries/index.html">Industries</a>
-                <a href="blog/index.html">Blog</a>
+                <a href="blog/index.html">Playlists</a>
+                <a href="about.html">About</a>
             </nav>
-            <a href="contact.html" class="btn btn-outline hide-on-mobile">Free Audit</a>
+            <a href="contact.html" class="btn btn-outline hide-on-mobile">Subscribe</a>
         </div>
     </header>
 
-    <main style="flex-grow: 1; padding: var(--space-16) 0;">
-        <div class="container" style="max-width: 800px;">
-            <h1 class="section-title" style="margin-bottom: var(--space-8);">Terms of Service</h1>
-            
-            <div style="color: var(--text-secondary); line-height: 1.8;">
-                <p style="margin-bottom: var(--space-4);">Last updated: November 2024</p>
-                
-                <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-2); color: var(--text-primary);">1. Acceptance of Terms</h3>
-                <p style="margin-bottom: var(--space-4);">By accessing or using the services provided by Ramzan Digital, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access our services.</p>
-                
-                <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-2); color: var(--text-primary);">2. Service Delivery</h3>
-                <p style="margin-bottom: var(--space-4);">Ramzan Digital provides custom web architecture, lead generation systems, and engineering consulting. Project timelines and deliverables are established in individual client agreements and proposals.</p>
-                
-                <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-2); color: var(--text-primary);">3. Intellectual Property</h3>
-                <p style="margin-bottom: var(--space-4);">Upon full payment, clients receive rights to the final deployed code and architecture specific to their project. Ramzan Digital retains the right to display the completed work in our portfolio and case studies.</p>
-                
-                <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-2); color: var(--text-primary);">4. Contact Information</h3>
-                <p style="margin-bottom: var(--space-4);">For any inquiries regarding these terms, please contact us at mramzan147800@gmail.com.</p>
+    <section class="section" style="padding-top: var(--space-12);">
+        <div class="container text-center" style="margin-bottom: var(--space-12);">
+            <h1 class="section-title">Terms of Service</h1>
+            <p class="text-secondary">Last updated: July 2026</p>
+        </div>
+
+        <div class="container legal-content">
+            <p>Welcome to the personal engineering blog of Muhammad Ramzan. By accessing or using this website, you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please do not use the website.</p>
+
+            <h2>1. Nature of the Platform</h2>
+            <p>This website serves as a personal portfolio, learning platform, and open-source notebook for Muhammad Ramzan, an Electrical Engineering student. The content provided here—including articles, code snippets, hardware architectures, and tutorials—is for educational and informational purposes only.</p>
+
+            <h2>2. Intellectual Property and Open Source</h2>
+            <p>Unless otherwise stated, the written content on this blog is the intellectual property of Muhammad Ramzan. However, code snippets and technical examples provided in the articles are generally intended for open-source learning. You are free to use, modify, and learn from the code snippets provided in the blog posts for your own projects, provided you do not republish the articles in their entirety as your own work.</p>
+
+            <h2>3. Disclaimer of Liability</h2>
+            <p>All information, code, and hardware schemas are provided "as-is" without any warranties. While I strive for accuracy, I cannot guarantee that all code will run flawlessly in every environment or that hardware designs are free of flaws. You are solely responsible for testing and verifying any code or hardware logic before applying it to your own systems. Muhammad Ramzan shall not be held liable for any damages, data loss, or hardware failures resulting from the use of information found on this site.</p>
+
+            <h2>4. User Comments & Conduct</h2>
+            <p>This website uses Giscus (via GitHub Discussions) for commenting on blog posts. By leaving a comment, you agree to:</p>
+            <ul>
+                <li>Maintain a respectful and professional tone.</li>
+                <li>Not post spam, promotional links, or malicious code.</li>
+                <li>Abide by GitHub's Terms of Service, as your comments are hosted on their platform.</li>
+            </ul>
+            <p>I reserve the right to delete any comments that violate these guidelines or remove access to the discussion platform at any time.</p>
+
+            <h2>5. Changes to Terms</h2>
+            <p>I reserve the right to modify these terms at any time. Any changes will be updated on this page. Your continued use of the website after changes are posted constitutes your acceptance of the revised terms.</p>
+
+            <h2>6. Contact</h2>
+            <p>If you have any questions regarding these Terms of Service, please contact me at <a href="mailto:mramzan147800@gmail.com" class="text-accent">mramzan147800@gmail.com</a>.</p>
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer style="background: var(--bg-surface-dark); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--bg-surface);">
+        <div class="container grid footer-grid" style="grid-template-columns: 2fr 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-8);">
+            <div>
+                <a href="index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--text-main); display: block; margin-bottom: var(--space-4);">
+                    Muhammad<span class="text-accent">Ramzan</span>
+                </a>
+                <p class="text-secondary" style="font-size: var(--text-sm); max-width: 300px; margin-bottom: var(--space-6);">
+                    Teaching to Learn. An open-source notebook for Electrical Engineering, Python, and Systems Mastery.
+                </p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Navigation</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><a href="index.html" class="text-secondary">Home</a></li>
+                    <li><a href="blog/index.html" class="text-secondary">Playlists / Blog</a></li>
+                    <li><a href="about.html" class="text-secondary">About Me</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Legal</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><a href="privacy.html" class="text-secondary">Privacy Policy</a></li>
+                    <li><a href="terms.html" class="text-secondary">Terms of Service</a></li>
+                </ul>
             </div>
         </div>
-    </main>
-
-    <footer style="background: var(--bg-surface-dark); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--bg-surface);">
         <div class="container text-center" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: var(--space-8);">
-            <p class="text-muted" style="font-size: var(--text-sm); margin-bottom: 0.5rem;">
-                <a href="privacy.html" class="hover-text-primary" style="margin-right: 1rem;">Privacy Policy</a>
-                <a href="terms.html" class="hover-text-primary">Terms of Service</a>
-            </p>
-            <p class="text-muted" style="font-size: var(--text-sm);">&copy; <span id="year"></span> Ramzan Digital. All rights reserved.</p>
+            <p class="text-muted" style="font-size: var(--text-sm);">&copy; <script>document.write(new Date().getFullYear())</script> Muhammad Ramzan. All rights reserved.</p>
         </div>
     </footer>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
 </body>
 </html>
