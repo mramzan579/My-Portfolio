@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programming: The Ultimate Beginners Guide to Talking to Computers | Muhammad Ramzan</title>
+    <meta name="description" content="New to programming? Start your journey here! Learn the basics of Python programming for beginners, understand how data types work with type() and isinstance(), and get a simple guide to coding logic—all explained in a student-friendly way.">
+    <meta name="keywords" content="Python for beginners, learn programming, Python data types, isinstance vs type, Python tutorial, coding basics, how to learn Python">
+    
+    <!-- Open Graph / Social Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Python Programming: The Ultimate Beginners Guide to Talking to Computers">
+    <meta property="og:description" content="New to programming? Start your journey here! Learn the basics of Python programming for beginners.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- JSON-LD SEO Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Python Programming: The Ultimate Beginners Guide to Talking to Computers",
+      "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
+      "author": {
+        "@type": "Person",
+        "name": "Muhammad Ramzan"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Muhammad Ramzan",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mramzan579.github.io/My-Portfolio/WhatsApp%20Image%202025-10-24%20at%2021.31.19_d3be8b9f.jpg"
+        }
+      },
+      "datePublished": "2026-07-04"
+    }
+    </script>
+
+    <style>
+        /* Forbes-style minimalist typography */
+        html { scroll-behavior: smooth; }
+        .article-content {
+            font-family: var(--font-primary);
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .article-content h2 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            scroll-margin-top: 100px;
+        }
+        .article-content h3 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            scroll-margin-top: 100px;
+        }
+        .article-content p { margin-bottom: 1.5rem; }
+        .article-content ul { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        .article-content li { margin-bottom: 0.5rem; }
+        .article-content pre {
+            background: #0d1117;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--bg-surface-dark);
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+        .article-content code {
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--color-accent);
+        }
+        
+        /* Table of Contents */
+        .toc-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--bg-surface-dark);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin-bottom: var(--space-8);
+        }
+        .toc-box h4 { margin-bottom: 1rem; font-size: 1.2rem; color: var(--text-main); }
+        .toc-list { list-style: none; padding: 0; margin: 0; }
+        .toc-list li { margin-bottom: 0.5rem; }
+        .toc-list a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .toc-list a:hover { color: var(--color-primary); }
+
+        /* Term Explanations (Tooltip) */
+        .term {
+            position: relative;
+            cursor: help;
+            border-bottom: 1px dashed var(--color-primary);
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+        .term:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-surface-dark);
+            color: var(--text-light);
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            white-space: nowrap;
+            z-index: 100;
+            box-shadow: var(--shadow-lg);
+            pointer-events: none;
+        }
+
+        /* Next / Prev Chapter Nav */
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--space-8);
+            gap: 1rem;
+        }
+        .chapter-btn {
+            flex: 1;
+            padding: 1.5rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--bg-surface-dark);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            transition: border-color 0.3s ease;
+        }
+        .chapter-btn.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .chapter-btn:hover:not(.disabled) { border-color: var(--color-primary); }
+        .chapter-btn .label { display: block; font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+        .chapter-btn .title { display: block; font-size: 1.2rem; color: var(--text-main); font-weight: 600; }
+
+        /* Scroll to Top Button */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--color-primary);
+            color: var(--text-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+        #scrollTopBtn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        #scrollTopBtn:hover { transform: translateY(-5px); }
+
+        /* Author Bio Block */
+        .author-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--bg-surface-dark);
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            margin-top: var(--space-12);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .author-img {
+            width: 100px;
+            height: 130px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            object-position: top;
+            border: 2px solid var(--color-accent);
+        }
+        
+        .faq-box {
+            background: var(--bg-surface);
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            margin-top: 3rem;
+            border-left: 4px solid var(--color-accent);
+        }
+        .faq-box h3 { margin-top: 0; }
+        .faq-item { margin-bottom: 1.5rem; }
+        .faq-question { font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; }
+        .faq-answer { color: var(--text-secondary); }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header style="padding: var(--space-4) 0; border-bottom: 1px solid var(--bg-surface-dark); position: sticky; top: 0; background: var(--bg-main); z-index: 999;">
+        <div class="container flex justify-between items-center">
+            <a href="../index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--text-main);">
+                Muhammad<span class="text-accent">Ramzan</span>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="index.html" style="color: var(--color-accent);">Playlists</a>
+                <a href="../about.html">About</a>
+            </nav>
+            <a href="../contact.html" class="btn btn-outline hide-on-mobile">Subscribe</a>
+        </div>
+    </header>
+
+    <!-- Article Header -->
+    <article class="section" style="padding-top: var(--space-12);">
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+            
+            <div style="margin-bottom: var(--space-8); text-align: center;">
+                <span class="text-accent" style="font-weight: 600; text-transform: uppercase; font-size: var(--text-sm); letter-spacing: 1px;">Series 01: Python</span>
+                <h1 style="font-size: 3rem; margin: var(--space-4) 0; line-height: 1.2;">Python Programming: The Ultimate Beginner's Guide to Talking to Computers</h1>
+                
+                <div class="flex justify-center items-center gap-4 text-muted" style="font-size: var(--text-sm);">
+                    <img src="../WhatsApp Image 2025-10-24 at 21.31.19_d3be8b9f.jpg" alt="Muhammad Ramzan" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                    <span>By <strong>Muhammad Ramzan</strong></span>
+                    <span>•</span>
+                    <span>July 04, 2026</span>
+                    <span>•</span>
+                    <span>4 min read</span>
+                </div>
+            </div>
+
+            <!-- Cover Image -->
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" alt="Hacker code green text on screen" style="width: 100%; border-radius: var(--radius-lg); margin-bottom: var(--space-12);">
+
+            <!-- Body Content -->
+            <div class="article-content">
+                
+                <!-- Table of Contents -->
+                <div class="toc-box">
+                    <h4>Table of Contents</h4>
+                    <ul class="toc-list">
+                        <li><a href="#the-language-of-logic">The Language of Logic: What is Programming?</a></li>
+                        <li><a href="#why-python">Why Python? The Power of Interpretation</a></li>
+                        <li><a href="#variables">Variables: Your Computer's Labeled Boxes</a></li>
+                        <li><a href="#dna-of-data">The DNA of Data: Understanding Data Types</a></li>
+                        <li><a href="#teach-to-learn-lab">The "Teach-to-Learn" Lab: Checking Your Types</a></li>
+                        <li><a href="#faq">Frequently Asked Questions (FAQ)</a></li>
+                    </ul>
+                </div>
+
+                <h2 id="the-language-of-logic">The Language of Logic: What is Programming?</h2>
+                <p>Imagine you are trying to explain how to make a peanut butter sandwich to someone who has never seen bread or a jar. You have to be very specific. That is programming. It is the language we use to talk to our computers. Since computers do not understand English or Urdu, we use languages like <a href="https://www.python.org/" target="_blank" style="color: var(--color-accent); text-decoration: underline;">Python</a> to bridge the gap between thought and machine action.</p>
+
+                <p>Let's look at a real-world example: <strong>car safety</strong>. Have you ever wondered how automatic braking systems work? A car is not thinking like a person. Instead, engineers have written a program. A sensor constantly scans the road. The program says:</p>
+
+                <ul>
+                    <li>If the distance to the object in front is less than 5 meters...</li>
+                    <li>And the speed is over 20km/h...</li>
+                </ul>
+
+                <p><strong>Then apply the brakes immediately.</strong></p>
+
+                <p>The car follows these rules without hesitation. Programming allows us to take that logic and apply it to everything from sending an email to launching a rocket.</p>
+
+                <h2 id="why-python">Why Python? The Power of Interpretation</h2>
+                <p>If you are just starting out, you have probably heard that Python is beginner-friendly. Why? It comes down to its <span class="term" data-tooltip="A language that executes instructions directly line-by-line without needing to be translated into machine code first.">interpreted nature</span>.</p>
+
+                <p>In languages like C++ or Java, the code is <span class="term" data-tooltip="A process where the entire program is translated into machine-readable code before it runs.">compiled</span>. Think of this like a translator who takes a book, translates every single page into another language, and then hands you the finished copy. You have to wait for the whole translation to finish before you can read a word.</p>
+
+                <p>In programming, this makes the software run fast once it is done, but it makes learning and fixing mistakes much harder.</p>
+
+                <p>Python, however, is interpreted. It works like a real-time translator standing next to you. As you write a line of Python code, it executes it line-by-line. This dynamic flow means you get instant feedback.</p>
+
+                <p>If you make a mistake on line 5, the program tells you immediately rather than waiting until the end.</p>
+
+                <p>While this makes Python slightly slower than low-level languages like C++ (because the computer has to translate as it goes), the trade-off is a language that's much more human-like, intuitive, and fun to write.</p>
+
+                <h2 id="variables">Variables: Your Computer's Labeled Boxes</h2>
+                <p>When you write a program you need a way to store information so you can use it later. This is where variables come in. Imagine your computer's memory is a warehouse. A variable is a box with a label on it.</p>
+
+                <p>If you put the number <code>25</code> in a box and label it <code>user_age</code>, you can tell Python later to "go find the box labeled 'user_age' and tell me what's inside."</p>
+
+                <p>To keep things organized, Python has strict naming rules for these boxes:</p>
+                <ul>
+                    <li>Your label must start with a letter or an underscore (<code>_</code>).</li>
+                    <li>It cannot start with a number (e.g., <code>1st_place</code> is illegal).</li>
+                    <li>Labels can only contain letters, numbers, and underscores.</li>
+                    <li>Spaces are strictly forbidden. Instead of "my age", we use <code>my_age</code> (this is often called <em>snake_case</em>).</li>
+                </ul>
+
+                <h2 id="dna-of-data">The DNA of Data: Understanding Data Types</h2>
+                <p>In Python, the computer needs to know what kind of data is in your box so it knows how to handle it. You cannot mathematically add a "Hello" to the number "5", right?</p>
+
+                <p>Here are the fundamental types:</p>
+
+                <h3>1. The Basics</h3>
+                <ul>
+                    <li><strong>String (str):</strong> This is text. Anything inside quotes like <code>"Python"</code> or <code>'123'</code> is a string.</li>
+                    <li><strong>Integer (int):</strong> Whole numbers without decimals, like <code>10</code>, <code>500</code>, or <code>-20</code>.</li>
+                    <li><strong>Float (float):</strong> Numbers with decimals, like <code>3.14</code> or <code>10.0</code>.</li>
+                </ul>
+
+                <h3>2. Mutable vs. Immutable (The "Locked Box" Rule)</h3>
+                <p>This is a concept that trips up beginners.</p>
+                <p><span class="term" data-tooltip="An object whose state cannot be modified after it is created.">Immutable</span> means once the data is created, it cannot be changed. If you try to change a String or a Tuple, Python actually creates a brand-new box for the result.</p>
+                <p><span class="term" data-tooltip="An object whose state or contents can be changed after creation without making a new object.">Mutable</span> means the data is flexible. Lists and Dictionaries are mutable, meaning you can add, remove, or change items inside the box without replacing the box itself.</p>
+
+                <h3>3. Complex Containers</h3>
+                <ul>
+                    <li><strong>Dictionaries (dict):</strong> These store Key-Value pairs. It's like a real dictionary. The 'Key' is the word you look up and the 'Value' is the definition.</li>
+                    <li><strong>Sets:</strong> These are collections of unique items. If you try to add the number "5" to a set that already has a "5", the set will simply ignore it. Perfect for removing duplicates!</li>
+                </ul>
+
+                <h2 id="teach-to-learn-lab">The "Teach-to-Learn" Lab: Checking Your Types</h2>
+                <p>As you become a mentor to others (or even just debugging your own code), you will often need to prove what data type you are working with.</p>
+
+                <p>Python provides two main tools for this investigation:</p>
+
+                <ul>
+                    <li><strong>The <code>type()</code> Function:</strong> If you use <code>type(variable)</code>, Python will tell you the exact class of the data. It's very technical—like a scientist identifying a species. For example, it might return <code>&lt;class 'int'&gt;</code>.</li>
+                    <li><strong>The <code>isinstance()</code> Function (The Pro Choice):</strong> Experienced developers prefer <code>isinstance(variable, type)</code>. Instead of a complex class description, it gives you a simple True or False. This is much easier to use in logic because you are asking a direct question: "Is this box an integer?"</li>
+                </ul>
+
+                <p>Let's look at this in action:</p>
+
+                <pre><code>
+x = 10
+
+# This tells you exactly what it is
+print(type(x))
+
+# This checks if it is what you think it is (returns True)
+print(isinstance(x, int)) 
+
+# Pro tip: You can check multiple types at once!
+# This asks: Is x an integer OR a float?
+print(isinstance(x, (int, float))) # Returns True
+                </code></pre>
+
+                <p>By using these tools, you ensure your program logic stays sound. Whether you are building the automatic braking system or just a simple calculator, understanding these fundamentals is the first step in your journey as a Python programmer.</p>
+                
+                <p>Welcome to the world of programming!</p>
+
+                <!-- FAQ Section -->
+                <div id="faq" class="faq-box">
+                    <h3>Frequently Asked Questions</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Is Python faster than other languages like C++?</div>
+                        <div class="faq-answer">A: Python is generally slower than compiled languages like C++ because it is interpreted line-by-line. However, for a beginner, the trade-off is worth it because it is much easier to write, read, and debug.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Q: When should I use isinstance() instead of type()?</div>
+                        <div class="faq-answer">A: Use <code>type()</code> if you need to know exactly what a variable is (like getting the class name). Use <code>isinstance()</code> when you want a simple True/False check to control your code's logic—it's the professional, clean way to do it.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Can I learn Python if I have never written code before?</div>
+                        <div class="faq-answer">A: Absolutely. Python was designed to be human-readable. If you understand basic logic (like the car braking example), you are already halfway there.</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Social Sharing -->
+            <div style="margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--bg-surface-dark); display: flex; justify-content: space-between; align-items: center;">
+                <span class="text-secondary" style="font-weight: 600;">Share this chapter:</span>
+                <div class="flex gap-4">
+                    <a href="https://twitter.com/intent/tweet?text=Check out this Python guide by Muhammad Ramzan" target="_blank" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-brands fa-twitter"></i> Twitter</a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://mramzan579.github.io/My-Portfolio/blog/python-chapter-1.html" target="_blank" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+
+            <!-- Chapter Navigation -->
+            <div class="chapter-nav">
+                <a href="#" class="chapter-btn disabled" style="text-align: left;">
+                    <span class="label"><i class="fa-solid fa-arrow-left"></i> Previous Chapter</span>
+                    <span class="title">--</span>
+                </a>
+                <a href="#" class="chapter-btn disabled" style="text-align: right;">
+                    <span class="label">Next Chapter <i class="fa-solid fa-arrow-right"></i></span>
+                    <span class="title">Coming Soon...</span>
+                </a>
+            </div>
+
+            <!-- Author Box (Forbes Style) -->
+            <div class="author-box">
+                <img src="../WhatsApp Image 2025-10-24 at 21.31.19_d3be8b9f.jpg" alt="Muhammad Ramzan" class="author-img">
+                <div>
+                    <h3 style="margin-bottom: 0.5rem;">Muhammad Ramzan</h3>
+                    <p class="text-secondary" style="font-size: var(--text-sm); margin-bottom: 0.5rem;">
+                        Electrical Engineering student documenting the journey to mastering Python, AI, and Systems Architecture. I use the "Teach to Learn" method to break down complex engineering concepts.
+                    </p>
+                    <a href="https://www.linkedin.com/in/muhammad-ramzan-bb63233aa/" target="_blank" class="text-accent" style="font-size: var(--text-sm); font-weight: 600;">Follow on LinkedIn →</a>
+                </div>
+            </div>
+
+            <!-- Giscus Comments Section -->
+            <div style="margin-top: var(--space-16);">
+                <h3 style="margin-bottom: var(--space-6);">Discussion</h3>
+                
+                <!-- GISCUS SCRIPT -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="mramzan579/My-Portfolio"
+                        data-repo-id="R_kgDOTAIDCQ"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOTAIDCc4DAYRw"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="en"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+            </div>
+
+        </div>
+    </article>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Global Footer -->
+    <footer style="background: var(--bg-surface-dark); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--bg-surface);">
+        <div class="container grid footer-grid" style="grid-template-columns: 2fr 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-8);">
+            <div>
+                <a href="../index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--text-main); display: block; margin-bottom: var(--space-4);">
+                    Muhammad<span class="text-accent">Ramzan</span>
+                </a>
+                <p class="text-secondary" style="font-size: var(--text-sm); max-width: 300px; margin-bottom: var(--space-6);">
+                    Teaching to Learn. An open-source notebook for Electrical Engineering, Python, and Systems Mastery.
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/in/muhammad-ramzan-bb63233aa/" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-linkedin" style="font-size: 1.5rem;"></i></a>
+                    <a href="https://github.com/mramzan579" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-github" style="font-size: 1.5rem;"></i></a>
+                    <a href="mailto:mramzan147800@gmail.com" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-solid fa-envelope" style="font-size: 1.5rem;"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Navigation</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><a href="../index.html" class="text-secondary">Home</a></li>
+                    <li><a href="../about.html" class="text-secondary">About Me</a></li>
+                    <li><a href="index.html" class="text-secondary">Playlists / Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Legal</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><a href="../privacy.html" class="text-secondary">Privacy Policy</a></li>
+                    <li><a href="../terms.html" class="text-secondary">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container text-center" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: var(--space-8);">
+            <p class="text-muted" style="font-size: var(--text-sm);">&copy; <span id="year"></span> Muhammad Ramzan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Scroll to Top Logic
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add("visible");
+            } else {
+                scrollTopBtn.classList.remove("visible");
+            }
+        });
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+</body>
+</html>
