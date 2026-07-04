@@ -13,6 +13,7 @@ When Muhammad Ramzan requests to publish a new blog post or provides a raw draft
 - Use the standard `blog/template.html` as the baseline.
 - **Table of Contents (ToC):** Add a clickable ToC at the top of the article so users can scroll to specific topics (use `#ids` on `<h2>` and `<h3>` tags).
 - **Term Explanations (Tooltips):** If the article is long or contains complex engineering jargon, wrap the term in a tooltip span (e.g., `<span class="term" data-tooltip="Definition here">Word</span>`) OR hyperlink it to a separate dedicated article.
+- **Interactive Code Playgrounds:** For important Python code examples, use the `.code-playground` structure (found in the template) which includes a static `<pre><code>` block and a hidden Trinket `<iframe>` toggled via the `.btn-try-it` button. Always set the Trinket iframe source to: `https://trinket.io/embed/python3?runOption=run`.
 - **Scroll to Top Button:** Ensure the fixed "Go to Top" button is active on the page.
 
 ## 3. Footer Navigation

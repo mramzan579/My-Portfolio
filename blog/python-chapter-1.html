@@ -212,6 +212,27 @@
         .faq-item { margin-bottom: 1.5rem; }
         .faq-question { font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem; }
         .faq-answer { color: var(--text-secondary); }
+
+        /* Code Playground Toggle */
+        .code-playground { margin-bottom: 1.5rem; }
+        .code-header { margin-bottom: 0.5rem; }
+        .btn-try-it {
+            background: transparent;
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: var(--text-sm);
+            transition: all 0.2s;
+        }
+        .btn-try-it:hover {
+            background: var(--color-primary);
+            color: var(--bg-main);
+        }
+        .interactive-code { display: none; border-radius: var(--radius-md); overflow: hidden; }
+        .interactive-code.active { display: block; }
+        .static-code.hidden { display: none; }
     </style>
 </head>
 <body>
@@ -343,7 +364,13 @@
 
                 <p>Let's look at this in action:</p>
 
-                <pre><code>
+                <div class="code-playground">
+                    <div class="code-header flex justify-between items-center">
+                        <span class="text-accent" style="font-size: var(--text-sm); font-family: monospace;">example.py</span>
+                        <button class="btn-try-it" onclick="toggleCode(this)">Try it Yourself</button>
+                    </div>
+                    <div class="static-code">
+                        <pre style="margin-bottom: 0;"><code>
 x = 10
 
 # This tells you exactly what it is
@@ -355,7 +382,12 @@ print(isinstance(x, int))
 # Pro tip: You can check multiple types at once!
 # This asks: Is x an integer OR a float?
 print(isinstance(x, (int, float))) # Returns True
-                </code></pre>
+                        </code></pre>
+                    </div>
+                    <div class="interactive-code">
+                        <iframe src="https://trinket.io/embed/python3?runOption=run" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+                    </div>
+                </div>
 
                 <p>By using these tools, you ensure your program logic stays sound. Whether you are building the automatic braking system or just a simple calculator, understanding these fundamentals is the first step in your journey as a Python programmer.</p>
                 
@@ -482,6 +514,23 @@ print(isinstance(x, (int, float))) # Returns True
     <script src="../js/main.js"></script>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Code Toggle Logic
+        function toggleCode(btn) {
+            const playground = btn.closest('.code-playground');
+            const staticCode = playground.querySelector('.static-code');
+            const interactiveCode = playground.querySelector('.interactive-code');
+            
+            if (staticCode.classList.contains('hidden')) {
+                staticCode.classList.remove('hidden');
+                interactiveCode.classList.remove('active');
+                btn.textContent = 'Try it Yourself';
+            } else {
+                staticCode.classList.add('hidden');
+                interactiveCode.classList.add('active');
+                btn.textContent = 'Close Editor';
+            }
+        }
         
         // Scroll to Top Logic
         const scrollTopBtn = document.getElementById("scrollTopBtn");
