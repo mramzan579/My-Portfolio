@@ -64,6 +64,7 @@
         </div>
     </header>
 
+    <main>
     <!-- Hero Section -->
     <section class="section" style="padding-top: var(--space-24); padding-bottom: var(--space-16);">
         <div class="container text-center" style="max-width: 800px;">
@@ -86,7 +87,7 @@
     <section class="section">
         <div class="container grid grid-2" style="gap: var(--space-12); align-items: center;">
             <div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--bg-surface-dark); max-width: 350px; margin: 0 auto; width: 100%;">
-                <img src="WhatsApp Image 2025-10-24 at 21.31.19_d3be8b9f.jpg" alt="Muhammad Ramzan" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1/1; object-position: center top;">
+                <img src="WhatsApp Image 2025-10-24 at 21.31.19_d3be8b9f.jpg" alt="Muhammad Ramzan" loading="lazy" width="350" height="350" style="width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1/1; object-position: center top;">
             </div>
             <div>
                 <span class="section-subtitle">Who I Am</span>
@@ -96,19 +97,19 @@
                 </p>
                 <div class="grid grid-2" style="gap: var(--space-6); margin-bottom: var(--space-8);">
                     <div>
-                        <h4 style="margin-bottom: var(--space-2);"><i class="fa-solid fa-code text-accent"></i> Core Languages</h4>
+                        <h3 style="margin-bottom: var(--space-2); font-size: 1.2rem;"><i class="fa-solid fa-code text-accent"></i> Core Languages</h3>
                         <p class="text-secondary" style="font-size: var(--text-sm);">Python, C, JavaScript</p>
                     </div>
                     <div>
-                        <h4 style="margin-bottom: var(--space-2);"><i class="fa-solid fa-microchip text-accent"></i> Engineering</h4>
+                        <h3 style="margin-bottom: var(--space-2); font-size: 1.2rem;"><i class="fa-solid fa-microchip text-accent"></i> Engineering</h3>
                         <p class="text-secondary" style="font-size: var(--text-sm);">Proteus, MATLAB, AutoCAD</p>
                     </div>
                     <div>
-                        <h4 style="margin-bottom: var(--space-2);"><i class="fa-solid fa-server text-accent"></i> Version Control</h4>
+                        <h3 style="margin-bottom: var(--space-2); font-size: 1.2rem;"><i class="fa-solid fa-server text-accent"></i> Version Control</h3>
                         <p class="text-secondary" style="font-size: var(--text-sm);">Git, GitHub</p>
                     </div>
                     <div>
-                        <h4 style="margin-bottom: var(--space-2);"><i class="fa-solid fa-laptop-code text-accent"></i> Environment</h4>
+                        <h3 style="margin-bottom: var(--space-2); font-size: 1.2rem;"><i class="fa-solid fa-laptop-code text-accent"></i> Environment</h3>
                         <p class="text-secondary" style="font-size: var(--text-sm);">VSCode, Linux</p>
                     </div>
                 </div>
@@ -143,7 +144,7 @@
                 I publish my engineering notes and tutorials directly to your inbox. No spam, just pure technical knowledge.
             </p>
             <form action="https://formspree.io/f/xkolwwzk" method="POST" class="flex gap-4" style="flex-wrap: wrap; justify-content: center;">
-                <input type="email" name="email" required placeholder="Enter your email address" style="padding: 1rem; border-radius: var(--radius-md); border: none; flex: 1; min-width: 250px; font-family: var(--font-body);">
+                <input type="email" name="email" required placeholder="Enter your email address" aria-label="Email Address" style="padding: 1rem; border-radius: var(--radius-md); border: none; flex: 1; min-width: 250px; font-family: var(--font-body);">
                 <!-- Hidden fields to identify as newsletter -->
                 <input type="hidden" name="type" value="Newsletter Subscription">
                 <button type="submit" class="btn" style="background-color: var(--text-light); color: var(--color-primary); border: none;">
@@ -153,6 +154,8 @@
             </form>
         </div>
     </section>
+
+    </main>
 
     <!-- Global Footer -->
     <footer style="background: var(--bg-surface-dark); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--bg-surface);">
@@ -165,9 +168,9 @@
                     Teaching to Learn. An open-source notebook for Electrical Engineering, Python, and Systems Mastery.
                 </p>
                 <div class="flex gap-4">
-                    <a href="https://www.linkedin.com/in/muhammad-ramzan-bb63233aa/" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-linkedin" style="font-size: 1.5rem;"></i></a>
-                    <a href="https://github.com/mramzan579" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-github" style="font-size: 1.5rem;"></i></a>
-                    <a href="mailto:mramzan147800@gmail.com" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-solid fa-envelope" style="font-size: 1.5rem;"></i></a>
+                    <a href="https://www.linkedin.com/in/muhammad-ramzan-bb63233aa/" target="_blank" aria-label="LinkedIn Profile" style="color: var(--text-secondary); transition: color 0.2s; padding: 0.5rem;"><i class="fa-brands fa-linkedin" style="font-size: 1.5rem;"></i></a>
+                    <a href="https://github.com/mramzan579" target="_blank" aria-label="GitHub Profile" style="color: var(--text-secondary); transition: color 0.2s; padding: 0.5rem;"><i class="fa-brands fa-github" style="font-size: 1.5rem;"></i></a>
+                    <a href="mailto:mramzan147800@gmail.com" aria-label="Send Email" style="color: var(--text-secondary); transition: color 0.2s; padding: 0.5rem;"><i class="fa-solid fa-envelope" style="font-size: 1.5rem;"></i></a>
                 </div>
             </div>
             <div>
