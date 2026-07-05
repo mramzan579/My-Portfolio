@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mramzan579.github.io/My-Portfolio/sitemap.xml
