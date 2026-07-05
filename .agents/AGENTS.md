@@ -10,7 +10,9 @@ When Muhammad Ramzan requests to publish a new blog post or provides a raw draft
 - Include Open Graph / Twitter Card meta tags with a relevant high-quality Unsplash placeholder image.
 
 ## 2. Article Structure & UX Features
+- **Flexible Content Structure:** Blogs are no longer strictly "chapters". They can be problem solutions, deep dives into new concepts, or tutorials. Follow the user's provided content structure exactly.
 - Use the standard `blog/template.html` as the baseline.
+- **Google Analytics:** Ensure the GA4 script (`G-K8VLZQCV8R`) is present in the `<head>` of the final HTML.
 - **Table of Contents (ToC):** Add a clickable ToC at the top of the article so users can scroll to specific topics (use `#ids` on `<h2>` and `<h3>` tags).
 - **Term Explanations (Tooltips):** If the article is long or contains complex engineering jargon, wrap the term in a tooltip span (e.g., `<span class="term" data-tooltip="Definition here">Word</span>`) OR hyperlink it to a separate dedicated article.
 - **Interactive Code Playgrounds:** For important Python code examples, use the `.code-playground` structure (found in the template) which includes a static `<pre><code>` block and a hidden Trinket `<iframe>` toggled via the `.btn-try-it` button. Always set the Trinket iframe source to: `https://trinket.io/embed/python3?runOption=run`.
