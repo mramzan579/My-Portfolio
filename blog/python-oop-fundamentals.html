@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everything Is an Object: Understanding Classes and OOP in Python | Muhammad Ramzan</title>
+    <meta name="description" content="Learn Python OOP fundamentals: what are objects, classes, state, methods, and why you need them. Build your first class and understand instantiation.">
+    
+    <!-- Open Graph / Social Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Everything Is an Object: Understanding Classes and OOP in Python | Muhammad Ramzan">
+    <meta property="og:description" content="Learn Python OOP fundamentals: what are objects, classes, state, methods, and why you need them. Build your first class and understand instantiation.">
+    <meta property="og:image" content="https://ramzandigital.netlify.app/assets/python_oop_blueprint.png">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- JSON-LD SEO Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Everything Is an Object: Understanding Classes and OOP in Python",
+      "image": "https://ramzandigital.netlify.app/assets/python_oop_blueprint.png",
+      "author": {
+        "@type": "Person",
+        "name": "Muhammad Ramzan"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Muhammad Ramzan",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ramzandigital.netlify.app/WhatsApp%20Image%202025-10-24%20at%2021.31.19_d3be8b9f.jpg"
+        }
+      },
+      "datePublished": "2026-07-20"
+    }
+    </script>
+
+    <style>
+        /* Forbes-style minimalist typography */
+        html { scroll-behavior: smooth; }
+        .article-content {
+            font-family: var(--font-primary);
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .article-content h2 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            scroll-margin-top: 100px;
+        }
+        .article-content h3 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            scroll-margin-top: 100px;
+        }
+        .article-content p { margin-bottom: 1.5rem; }
+        .article-content pre {
+            background: #0d1117;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--bg-surface-dark);
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+        .article-content code {
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--color-accent);
+        }
+        
+        /* Table of Contents */
+        .toc-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--bg-surface-dark);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            margin-bottom: var(--space-8);
+        }
+        .toc-box h4 { margin-bottom: 1rem; font-size: 1.2rem; }
+        .toc-list { list-style: none; padding: 0; margin: 0; }
+        .toc-list li { margin-bottom: 0.5rem; }
+        .toc-list a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+        .toc-list a:hover { color: var(--color-primary); }
+
+        /* Term Explanations (Tooltip) */
+        .term {
+            position: relative;
+            cursor: help;
+            border-bottom: 1px dashed var(--color-primary);
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+        .term:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-primary);
+            color: #ffffff;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            white-space: normal;
+            width: max-content;
+            max-width: 250px;
+            text-align: center;
+            z-index: 100;
+            box-shadow: var(--shadow-lg);
+            pointer-events: none;
+        }
+
+        /* Next / Prev Chapter Nav */
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--space-8);
+            gap: 1rem;
+        }
+        .chapter-btn {
+            flex: 1;
+            padding: 1.5rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--bg-surface-dark);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            transition: border-color 0.3s ease;
+        }
+        .chapter-btn:hover { border-color: var(--color-primary); }
+        .chapter-btn .label { display: block; font-size: var(--text-xs); color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+        .chapter-btn .title { display: block; font-size: 1.2rem; color: var(--text-main); font-weight: 600; }
+
+        /* Scroll to Top Button */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--color-primary);
+            color: var(--text-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+        #scrollTopBtn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        #scrollTopBtn:hover { transform: translateY(-5px); }
+
+        /* Author Bio Block */
+        .author-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--bg-surface-dark);
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            margin-top: var(--space-12);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .author-img {
+            width: 100px;
+            height: 130px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            object-position: top;
+            border: 2px solid var(--color-accent);
+        }
+
+        /* Code Playground Toggle */
+        .code-playground { margin-bottom: 1.5rem; }
+        .code-header { margin-bottom: 0.5rem; }
+        .btn-try-it {
+            background: transparent;
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: var(--text-sm);
+            transition: all 0.2s;
+        }
+        .btn-try-it:hover {
+            background: var(--color-primary);
+            color: var(--bg-main);
+        }
+        .interactive-code { display: none; border-radius: var(--radius-md); overflow: hidden; }
+        .interactive-code.active { display: block; }
+        .static-code.hidden { display: none; }
+    </style>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K8VLZQCV8R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-K8VLZQCV8R');
+    </script>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header style="padding: var(--space-4) 0; border-bottom: 1px solid var(--bg-surface-dark); position: sticky; top: 0; background: var(--bg-main); z-index: 999;">
+        <div class="container flex justify-between items-center">
+            <a href="../index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--text-main);">
+                Muhammad<span class="text-accent">Ramzan</span>
+            </a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="index.html" style="color: var(--color-accent);">Playlists</a>
+                <a href="../about.html">About</a>
+            </nav>
+            <a href="../contact.html" class="btn btn-outline hide-on-mobile">Subscribe</a>
+        </div>
+    </header>
+
+    <!-- Article Header -->
+    <article class="section" style="padding-top: var(--space-12);">
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+            
+            <div style="margin-bottom: var(--space-8); text-align: center;">
+                <span class="text-accent" style="font-weight: 600; text-transform: uppercase; font-size: var(--text-sm); letter-spacing: 1px;">Python: Zero to Mastery</span>
+                <h1 style="font-size: 3rem; margin: var(--space-4) 0; line-height: 1.2;">Everything Is an Object: Understanding Classes and OOP in Python</h1>
+                
+                <div class="flex justify-center items-center gap-4 text-muted" style="font-size: var(--text-sm);">
+                    <img src="../assets/WhatsApp Image 2025-10-25 at 13.15.34_5befe17e.jpg" alt="Muhammad Ramzan" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                    <span>By <strong>Muhammad Ramzan</strong></span>
+                    <span>•</span>
+                    <span>July 20, 2026</span>
+                    <span>•</span>
+                    <span>10 min read</span>
+                </div>
+            </div>
+
+            <!-- Cover Image -->
+            <img src="../assets/python_oop_blueprint.png" alt="Cinematic glowing blueprint of a car turning into a high-tech car on a workbench, symbolizing OOP" style="width: 100%; border-radius: var(--radius-lg); margin-bottom: var(--space-12);">
+
+            <!-- Body Content -->
+            <div class="article-content">
+                
+                
+                <!-- Table of Contents -->
+                <div class="toc-box">
+                    <h4>Table of Contents</h4>
+                    <ul class="toc-list">
+                        <li><a href="#intro">The Night I Realized Python Has Been Lying to Me</a></li>
+                        <li><a href="#part-1">Part 1: The Shocking Truth — Everything Is an Object</a></li>
+                        <li><a href="#part-2">Part 2: State vs Methods — What Makes an Object Intelligent</a></li>
+                        <li><a href="#part-3">Part 3: Why You Can't Just Use Lists and Dictionaries</a></li>
+                        <li><a href="#part-4">Part 4: Building Your First Class — The Point Class</a></li>
+                        <li><a href="#part-5">Part 5: Understanding __init__ and Instantiation</a></li>
+                        <li><a href="#part-6">Part 6: State, Behavior, and Why This Matters</a></li>
+                        <li><a href="#part-7">Part 7: The Real-World Engineering Connection</a></li>
+                        <li><a href="#part-8">Part 8: Common Mistakes (And How I Made Them)</a></li>
+                        <li><a href="#part-9">Part 9: Why Every Value Is Really an Object</a></li>
+                        <li><a href="#journey">The Journey Forward</a></li>
+                        <li><a href="#faq">Common Questions</a></li>
+                        <li><a href="#practice">Practice Challenges</a></li>
+                        <li><a href="#whats-next">What's Next?</a></li>
+                    </ul>
+                </div>
+
+                <h2 id="intro">The Night I Realized Python Has Been Lying to Me</h2>
+                <p>It's 12:30 AM. I've been coding in Python for two days. Lists work. Dictionaries work. Functions work. So why do I suddenly need something called <strong>classes</strong>?</p>
+                <p>That's when my brain hit the wall.</p>
+                <p>I wasn't thinking deeply enough about what Python <em>actually</em> is. I thought classes were an optional advanced feature. Turns out, classes are the <strong>foundation of everything</strong> in Python. I'd just been using pre-built ones without realizing it.</p>
+                <p>By 3 AM, I understood. This post documents that journey.</p>
+
+                <h2 id="part-1">Part 1: The Shocking Truth — Everything Is an Object</h2>
+                <p>Here's something that should have broken my brain on Day 1:</p>
+                <p><strong>Every single value in Python is an <span class="term" data-tooltip="A discrete entity that holds data (state) and functions (methods) that operate on that data.">object</span>.</strong></p>
+                
+                <pre><code>
+x = 5          # x is an integer OBJECT
+name = "Ali"   # name is a string OBJECT
+data = [1,2,3] # data is a list OBJECT
+                </code></pre>
+                
+                <p>Not variables. Objects.</p>
+                <p><strong>What does that mean?</strong></p>
+                <p>It means every value has:</p>
+                <ol style="list-style-type: decimal; margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    <li><strong><span class="term" data-tooltip="The current data or property values an object contains at any given time.">State</span></strong> — The data it contains</li>
+                    <li><strong><span class="term" data-tooltip="A function that belongs to an object, giving it behavior.">Methods</span></strong> — Things it can do</li>
+                </ol>
+
+                <pre><code>
+# String object has methods
+name = "Muhammad"
+print(name.upper())        # String knows how to uppercase itself
+print(name.lower())        # String knows how to lowercase itself
+print(name.replace("m", "M"))  # String knows how to replace characters
+                </code></pre>
+                <p>The string <code>"Muhammad"</code> isn't just data sitting there. It's an <strong>intelligent object</strong> that knows how to manipulate itself.</p>
+
+                <pre><code>
+# List object has methods
+numbers = [3, 1, 4, 1, 5]
+numbers.append(9)  # List knows how to add an item
+numbers.sort()     # List knows how to sort itself
+print(numbers.count(1))  # List knows how to count occurrences
+                </code></pre>
+                <p><strong>The revelation:</strong> I've been working with objects since Day 1. I just didn't know what they were called.</p>
+
+                <h2 id="part-2">Part 2: State vs Methods — What Makes an Object Intelligent</h2>
+                <p>Let's break this down with a real example: a car.</p>
+                
+                <h3 style="margin-top: 1.5rem;">State: What the Car Knows About Itself</h3>
+                <p>Every car has properties that define its current condition:</p>
+                <ul style="list-style-type: disc; margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    <li>Color (blue, black, white)</li>
+                    <li>Current speed (0 mph, 50 mph, 100 mph)</li>
+                    <li>Fuel level (empty, half-full, full)</li>
+                    <li>Position (latitude, longitude)</li>
+                </ul>
+                <p>This is the <strong>state</strong> of the object.</p>
+
+                <h3 style="margin-top: 1.5rem;">Methods: What the Car Can Do</h3>
+                <p>A car isn't just data. It has <strong>capabilities</strong>:</p>
+                <ul style="list-style-type: disc; margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    <li><code>accelerate()</code> — increase speed</li>
+                    <li><code>brake()</code> — decrease speed</li>
+                    <li><code>turn_left()</code> — change direction</li>
+                    <li><code>refuel()</code> — add fuel</li>
+                </ul>
+                <p>This is the <strong>behavior</strong> of the object.</p>
+
+                <p><strong>Two cars, same class, different states:</strong></p>
+                <p>Car A:<br>
+                - Color: Blue<br>
+                - Speed: 50 mph<br>
+                - Fuel: 3/4 full</p>
+
+                <p>Car B:<br>
+                - Color: Black<br>
+                - Speed: 0 mph<br>
+                - Fuel: 1/4 full</p>
+
+                <p>Both cars can accelerate. Both can brake. But their current <strong>states</strong> are different.</p>
+                <p>This is the essence of object-oriented programming: <strong>organizing data (state) with the functions that manipulate it (methods).</strong></p>
+
+                <h2 id="part-3">Part 3: Why You Can't Just Use Lists and Dictionaries</h2>
+                <p>Python gives you lists and dictionaries out of the box. So why create your own <span class="term" data-tooltip="A blueprint or template for creating objects, defining the default state and behavior.">classes</span>?</p>
+                <p>Let me show you the problem.</p>
+
+                <p><strong>The wrong way (using plain data):</strong></p>
+                <pre><code>
+# Representing a point without a class
+point_1_x = 5
+point_1_y = 10
+
+point_2_x = 3
+point_2_y = 7
+
+# Now imagine you have 1000 points
+# You'd have 2000 variables floating around
+# Pure chaos.
+                </code></pre>
+
+                <p><strong>The slightly better way (using dictionaries):</strong></p>
+                <pre><code>
+point_1 = {"x": 5, "y": 10}
+point_2 = {"x": 3, "y": 7}
+
+print(point_1["x"])  # 5
+                </code></pre>
+                <p>This works, but it's fragile:</p>
+                <ul style="list-style-type: disc; margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    <li>No protection against typos (<code>{"X": 5}</code> is different from <code>{"x": 5}</code>)</li>
+                    <li>No built-in methods (you'd have to write distance calculation every time)</li>
+                    <li>Mixing data with code creates confusion</li>
+                </ul>
+
+                <p><strong>The right way (using a class):</strong></p>
+                <pre><code>
+class Point:
+    def __init__(self):
+        self.x = 0
+        self.y = 0
+
+p = Point()
+q = Point()
+
+print(p.x)  # 0
+print(q.x)  # 0
+                </code></pre>
+                <p>Now:</p>
+                <ul style="list-style-type: disc; margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    <li>Each Point is organized and consistent</li>
+                    <li>You can add methods to calculate distance, find midpoint, etc.</li>
+                    <li>Code is clean and reusable</li>
+                </ul>
+
+                <h2 id="part-4">Part 4: Building Your First Class — The Point Class</h2>
+                <p>Let's break down the simplest possible class:</p>
+                
+                <div class="code-playground">
+                    <div class="code-header flex justify-between items-center">
+                        <span class="text-secondary" style="font-size: var(--text-sm);"><i class="fa-brands fa-python"></i> First Class Example</span>
+                        <button class="btn-try-it" onclick="toggleCode(this)">Try it Yourself</button>
+                    </div>
+                    <div class="static-code">
+                        <pre><code>
+class Point:
+    ''' Point class for representing x,y coordinates '''
+    
+    def __init__(self):
+        ''' Constructor: runs when a new Point is created '''
+        self.x = 0
+        self.y = 0
+
+p = Point()
+q = Point()
+print("p.x =", p.x, "q.x =", q.x)
+                        </code></pre>
+                    </div>
+                    <div class="interactive-code">
+                        <iframe src="https://trinket.io/embed/python3?runOption=run" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 1.5rem;">What's Happening Here?</h3>
+                <p><strong>Line 1: <code>class Point:</code></strong></p>
+                <ul style="list-style-type: disc; margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    <li>You're defining a new type of object called <code>Point</code></li>
+                    <li>From now on, Python knows what a "Point" is</li>
+                </ul>
+
+                <p><strong>Line 4: <code>def __init__(self):</code></strong></p>
+                <ul style="list-style-type: disc; margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    <li>This is the <strong><span class="term" data-tooltip="A special method automatically called when an object is created.">constructor</span></strong> (initializer)</li>
+                    <li>It runs automatically whenever you create a new Point</li>
+                    <li><code>self</code> means "the object being created"</li>
+                </ul>
+
+                <p><strong>Lines 6-7: Setting attributes</strong></p>
+                <pre><code>
+self.x = 0
+self.y = 0
+                </code></pre>
+                <ul style="list-style-type: disc; margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    <li>You're giving each Point object two attributes: x and y</li>
+                    <li>Both start at 0 (the origin)</li>
+                </ul>
+
+                <h3 style="margin-top: 1.5rem;">Creating Instances (Objects from the Class)</h3>
+                <pre><code>
+p = Point()  # Create first Point
+q = Point()  # Create second Point
+
+print(p.x)   # 0
+print(q.x)   # 0
+
+# Are they the same object?
+print(p is q)  # False
+                </code></pre>
+                <p><strong>The key insight:</strong> <code>p</code> and <code>q</code> are two <strong>different objects</strong> created from the same class blueprint.</p>
+                <p>They both have x and y attributes set to 0, but they are separate entities in memory.</p>
+                <p>If you change one, the other doesn't change:</p>
+                <pre><code>
+p.x = 5
+print(p.x)  # 5
+print(q.x)  # 0 (q is unchanged)
+                </code></pre>
+
+                <h2 id="part-5">Part 5: Understanding __init__ and Instantiation</h2>
+                <p>The <code>__init__</code> method is special. It's the constructor.</p>
+
+                <h3 style="margin-top: 1.5rem;">What is Instantiation?</h3>
+                <p><span class="term" data-tooltip="The process of creating a specific instance (object) from a class blueprint.">Instantiation</span> is the process of creating a new object from a class. It has two steps:</p>
+                <ol style="list-style-type: decimal; margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    <li><strong>Create a blank object</strong> — Python creates an empty instance</li>
+                    <li><strong>Run __init__</strong> — Python calls the constructor to set up the object</li>
+                </ol>
+
+                <p><strong>Behind the scenes:</strong></p>
+                <pre><code>
+# Step 1: Create blank instance
+p = &lt;blank Point object&gt;
+
+# Step 2: Run __init__ on that object
+p.__init__()  # which sets p.x = 0 and p.y = 0
+                </code></pre>
+                <p><strong>The result:</strong> <code>p</code> is now a fully initialized Point object with x=0 and y=0.</p>
+
+                <h3 style="margin-top: 1.5rem;">The Factory Metaphor</h3>
+                <p>Think of a class as a factory:</p>
+                <ul style="list-style-type: disc; margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    <li>The <strong>class</strong> is the blueprint/machinery</li>
+                    <li>Each <strong>object</strong> is a product rolling off the production line</li>
+                    <li>The <strong>__init__ method</strong> is quality control that sets up each product</li>
+                </ul>
+
+                <h2 id="part-6">Part 6: State, Behavior, and Why This Matters</h2>
+                <p>Let's build on the Point class to show state and behavior together:</p>
+                
+                <div class="code-playground">
+                    <div class="code-header flex justify-between items-center">
+                        <span class="text-secondary" style="font-size: var(--text-sm);"><i class="fa-brands fa-python"></i> Methods Example</span>
+                        <button class="btn-try-it" onclick="toggleCode(this)">Try it Yourself</button>
+                    </div>
+                    <div class="static-code">
+                        <pre><code>
+class Point:
+    def __init__(self):
+        self.x = 0
+        self.y = 0
+    
+    def move_right(self, distance):
+        '''Move point right by changing x'''
+        self.x = self.x + distance
+    
+    def move_up(self, distance):
+        '''Move point up by changing y'''
+        self.y = self.y + distance
+    
+    def get_position(self):
+        '''Return current position'''
+        return (self.x, self.y)
+
+p = Point()
+print(p.get_position())  # (0, 0)
+
+p.move_right(5)
+p.move_up(3)
+print(p.get_position())  # (5, 3)
+                        </code></pre>
+                    </div>
+                    <div class="interactive-code">
+                        <iframe src="https://trinket.io/embed/python3?runOption=run" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <p>Now our Point has:</p>
+                <p><strong>State:</strong> x and y coordinates</p>
+                <p><strong>Methods (Behavior):</strong></p>
+                <ul style="list-style-type: disc; margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    <li><code>move_right()</code> — changes state</li>
+                    <li><code>move_up()</code> — changes state</li>
+                    <li><code>get_position()</code> — reads state</li>
+                </ul>
+                <p><strong>The magic:</strong> The data (x, y) and the functions that manipulate it (move_right, move_up) are bundled together in one object. This is why classes exist: <strong>organization and safety.</strong></p>
+
+                <h2 id="part-7">Part 7: The Real-World Engineering Connection</h2>
+                <p>In electrical engineering, you design circuits as templates.</p>
+                <p>A power supply circuit template has:</p>
+                <ul style="list-style-type: disc; margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    <li><strong>State:</strong> Voltage (5V, 12V, etc.), Current (in amps)</li>
+                    <li><strong>Behavior:</strong> Step up voltage, step down voltage, convert AC to DC</li>
+                </ul>
+                <p>You design it once. You manufacture it 10,000 times. Each one is an instance of the same template.</p>
+                <pre><code>
+class PowerSupply:
+    def __init__(self):
+        self.voltage = 0
+        self.current = 0
+    
+    def set_voltage(self, v):
+        self.voltage = v
+    
+    def set_current(self, i):
+        self.current = i
+    
+    def get_power(self):
+        return self.voltage * self.current
+
+# Manufacture instances
+ps1 = PowerSupply()  # Power supply 1
+ps2 = PowerSupply()  # Power supply 2
+
+ps1.set_voltage(5)
+ps1.set_current(2)
+
+ps2.set_voltage(12)
+ps2.set_current(1)
+
+print(ps1.get_power())  # 10 watts
+print(ps2.get_power())  # 12 watts
+                </code></pre>
+                <p>Same design. Different configurations. Different real-world use cases.</p>
+
+                <h2 id="part-8">Part 8: Common Mistakes (And How I Made Them)</h2>
+                
+                <h3 style="margin-top: 1.5rem;">Mistake 1: Forgetting What <code>self</code> Means</h3>
+                <pre><code>
+# WRONG - treating self like a regular variable
+class Point:
+    def __init__(self):
+        x = 0  # This is a LOCAL variable, not an attribute!
+        y = 0
+
+p = Point()
+print(p.x)  # ERROR! p doesn't have attribute x
+                </code></pre>
+
+                <p><strong>RIGHT:</strong></p>
+                <pre><code>
+class Point:
+    def __init__(self):
+        self.x = 0  # This creates an ATTRIBUTE on the object
+        self.y = 0
+
+p = Point()
+print(p.x)  # 0 - works!
+                </code></pre>
+                <p><strong>The lesson:</strong> <code>self.x</code> creates an attribute. <code>x</code> creates a local variable. Don't confuse them.</p>
+
+                <h3 style="margin-top: 1.5rem;">Mistake 2: Assuming Different Objects Are the Same</h3>
+                <pre><code>
+p = Point()
+q = Point()
+
+print(p is q)  # False - they're different objects!
+print(p == q)  # Also False - different objects have different identities
+                </code></pre>
+
+                <h3 style="margin-top: 1.5rem;">Mistake 3: Modifying One Object Thinking It Won't Affect Others</h3>
+                <pre><code>
+p = Point()
+q = Point()
+
+p.x = 5
+
+print(p.x)  # 5
+print(q.x)  # 0 - q is unaffected!
+                </code></pre>
+                <p>This isn't a mistake, but it's important to understand: changing one object's state doesn't affect others.</p>
+
+                <h3 style="margin-top: 1.5rem;">Mistake 4: Creating Classes When You Don't Need Them</h3>
+                <pre><code>
+# OVERKILL
+class SingleNumber:
+    def __init__(self, value):
+        self.value = value
+
+x = SingleNumber(5)
+print(x.value)  # 5
+
+# BETTER
+x = 5  # Just use a number
+                </code></pre>
+
+                <h2 id="part-9">Part 9: Why Every Value Is Really an Object</h2>
+                <p>This is the key insight that clicked for me.</p>
+                <p>Python is built on classes. Everything you use is a class:</p>
+                <pre><code>
+# int is a class
+x = 5
+print(type(x))  # &lt;class 'int'&gt;
+
+# str is a class
+name = "Ali"
+print(type(name))  # &lt;class 'str'&gt;
+
+# list is a class
+numbers = [1, 2, 3]
+print(type(numbers))  # &lt;class 'list'&gt;
+                </code></pre>
+                <p>When you call <code>name.upper()</code>, you're calling a <strong>method</strong> that exists on the string <strong>class</strong>.</p>
+                <p>When you call <code>numbers.append(4)</code>, you're calling a <strong>method</strong> that exists on the list <strong>class</strong>.</p>
+                <p>Python comes with hundreds of pre-built classes. You can use them. Or you can create your own.</p>
+
+                <h2 id="journey">The Journey Forward</h2>
+                <p>Understanding classes changes everything.</p>
+                <p><strong>Tomorrow:</strong> You'll learn to pass <strong>parameters</strong> to <code>__init__</code>, so you can create Points at any position:</p>
+                <pre><code>
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+p = Point(5, 10)  # Create Point at (5, 10)
+                </code></pre>
+                <p><strong>Next week:</strong> Inheritance — create specialized classes that inherit from general ones.</p>
+                <p><strong>Next month:</strong> FastAPI will use classes to organize your web server code.</p>
+                <p>Classes are everywhere in professional programming. Master this now, and everything else makes sense.</p>
+
+                <h2 id="faq">Common Questions</h2>
+                <p><strong>Q: Do I need to create a class for everything?</strong><br>
+                A: No. Use built-in types (int, str, list) when appropriate. Create a class when you need to organize related data and behavior.</p>
+                <p><strong>Q: Why is it called <code>__init__</code> and not <code>init</code>?</strong><br>
+                A: The double underscores tell Python "this is a special method." Other special methods include <code>__str__</code>, <code>__len__</code>, etc.</p>
+                <p><strong>Q: Can I create multiple instances of the same class?</strong><br>
+                A: Yes. Each instance is independent with its own state.</p>
+
+                <h2 id="practice">Practice Challenges</h2>
+                <ol style="list-style-type: decimal; margin-left: 2rem; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                    <li>Create a <code>Car</code> class with attributes: color, speed, fuel</li>
+                    <li>Add methods: <code>accelerate()</code>, <code>brake()</code>, <code>refuel()</code></li>
+                    <li>Create two car instances and modify them independently</li>
+                    <li>Create a <code>Student</code> class with: name, roll_number, gpa</li>
+                    <li>Add a method to check if a student's GPA is above 3.0</li>
+                </ol>
+
+                <h2 id="whats-next">What's Next?</h2>
+                <p>Tomorrow: <strong>Methods with Parameters & Initializing Objects Properly</strong></p>
+                <p>You'll learn how to pass data to <code>__init__</code> so each object can start with custom values.</p>
+<!-- Social Sharing -->
+            <div style="margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--bg-surface-dark); display: flex; justify-content: space-between; align-items: center;">
+                <span class="text-secondary" style="font-weight: 600;">Share this chapter:</span>
+                <div class="flex gap-4">
+                    <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(document.title), '_blank'); return false;" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-brands fa-twitter"></i> Twitter</a>
+                    <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank'); return false;" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+
+            <!-- Chapter Navigation -->
+            <div class="chapter-nav">
+                <a href="#" class="chapter-btn" style="text-align: left;">
+                    <span class="label"><i class="fa-solid fa-arrow-left"></i> Previous Chapter</span>
+                    <span class="title">Setting up the Python Environment</span>
+                </a>
+                <a href="#" class="chapter-btn" style="text-align: right;">
+                    <span class="label">Next Chapter <i class="fa-solid fa-arrow-right"></i></span>
+                    <span class="title">Functions & Object-Oriented Logic</span>
+                </a>
+            </div>
+
+            <!-- Author Box (Forbes Style) -->
+            <div class="author-box">
+                <img src="../assets/WhatsApp Image 2025-10-19 at 01.37.32_16ecd48b.jpg" alt="Muhammad Ramzan" class="author-img">
+                <div>
+                    <h3 style="margin-bottom: 0.5rem;">Muhammad Ramzan</h3>
+                    <p class="text-secondary" style="font-size: var(--text-sm); margin-bottom: 0.5rem;">
+                        Electrical Engineering student documenting the journey to mastering Python, AI, and Systems Architecture. I use the "Teach to Learn" method to break down complex engineering concepts.
+                    </p>
+                    <a href="https://www.linkedin.com/in/muhammad-ramzan-bb63233aa/" target="_blank" class="text-accent" style="font-size: var(--text-sm); font-weight: 600;">Follow on LinkedIn →</a>
+                </div>
+            </div>
+
+            <!-- Giscus Comments Section -->
+            <div style="margin-top: var(--space-16);">
+                <h3 style="margin-bottom: var(--space-6);">Discussion</h3>
+                
+                <!-- GISCUS SCRIPT -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="mramzan579/My-Portfolio"
+                        data-repo-id="R_kgDOTAIDCQ"
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOTAIDCc4DAYRw"
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="bottom"
+                        data-theme="preferred_color_scheme"
+                        data-lang="en"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+            </div>
+
+        </div>
+    </article>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Global Footer -->
+    <footer style="background: var(--bg-surface-dark); padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--bg-surface);">
+        <div class="container grid footer-grid" style="grid-template-columns: 2fr 1fr 1fr; gap: var(--space-8); margin-bottom: var(--space-8);">
+            <div>
+                <a href="../index.html" style="font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--text-main); display: block; margin-bottom: var(--space-4);">
+                    Muhammad<span class="text-accent">Ramzan</span>
+                </a>
+                <p class="text-secondary" style="font-size: var(--text-sm); max-width: 300px; margin-bottom: var(--space-6);">
+                    Teaching to Learn. An open-source notebook for Electrical Engineering, Python, and Systems Mastery.
+                </p>
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/in/muhammad-ramzan-bb63233aa/" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-linkedin" style="font-size: 1.5rem;"></i></a>
+                    <a href="https://github.com/mramzan579" target="_blank" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-brands fa-github" style="font-size: 1.5rem;"></i></a>
+                    <a href="mailto:mramzan147800@gmail.com" style="color: var(--text-secondary); transition: color 0.2s;"><i class="fa-solid fa-envelope" style="font-size: 1.5rem;"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Navigation</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><a href="../index.html" class="text-secondary">Home</a></li>
+                    <li><a href="../about.html" class="text-secondary">About Me</a></li>
+                    <li><a href="index.html" class="text-secondary">Playlists / Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: var(--space-4);">Legal</h4>
+                <ul class="flex-column gap-2" style="font-size: var(--text-sm); list-style: none;">
+                    <li><a href="../privacy.html" class="text-secondary">Privacy Policy</a></li>
+                    <li><a href="../terms.html" class="text-secondary">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container text-center" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: var(--space-8);">
+            <p class="text-muted" style="font-size: var(--text-sm);">&copy; <span id="year"></span> Muhammad Ramzan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Code Toggle Logic
+        function toggleCode(btn) {
+            const playground = btn.closest('.code-playground');
+            const staticCode = playground.querySelector('.static-code');
+            const interactiveCode = playground.querySelector('.interactive-code');
+            
+            if (staticCode.classList.contains('hidden')) {
+                staticCode.classList.remove('hidden');
+                interactiveCode.classList.remove('active');
+                btn.textContent = 'Try it Yourself';
+            } else {
+                staticCode.classList.add('hidden');
+                interactiveCode.classList.add('active');
+                btn.textContent = 'Close Editor';
+            }
+        }
+        
+        // Scroll to Top Logic
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add("visible");
+            } else {
+                scrollTopBtn.classList.remove("visible");
+            }
+        });
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+</body>
+</html>

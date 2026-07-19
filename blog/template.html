@@ -300,8 +300,8 @@ int main() {
             <div style="margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--bg-surface-dark); display: flex; justify-content: space-between; align-items: center;">
                 <span class="text-secondary" style="font-weight: 600;">Share this chapter:</span>
                 <div class="flex gap-4">
-                    <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-brands fa-twitter"></i> Twitter</a>
-                    <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(document.title), '_blank'); return false;" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-brands fa-twitter"></i> Twitter</a>
+                    <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank'); return false;" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
                 </div>
             </div>
 

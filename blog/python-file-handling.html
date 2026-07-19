@@ -704,8 +704,8 @@ with open('huge_log.txt', 'r') as f:
             <div style="margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--bg-surface-dark); display: flex; justify-content: space-between; align-items: center;">
                 <span class="text-secondary" style="font-weight: 600;">Share this chapter:</span>
                 <div class="flex gap-4">
-                    <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-brands fa-twitter"></i> Twitter</a>
-                    <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(document.title), '_blank'); return false;" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-brands fa-twitter"></i> Twitter</a>
+                    <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank'); return false;" class="btn btn-outline" style="padding: 0.5rem 1rem;"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
                 </div>
             </div>
 
@@ -715,9 +715,9 @@ with open('huge_log.txt', 'r') as f:
                     <span class="label"><i class="fa-solid fa-arrow-left"></i> Back to Playlist</span>
                     <span class="title">Python: Zero to Mastery</span>
                 </a>
-                <a href="#" class="chapter-btn" style="text-align: right; cursor: default; pointer-events: none;">
+                <a href="python-oop-fundamentals.html" class="chapter-btn" style="text-align: right;">
                     <span class="label">Next Article <i class="fa-solid fa-arrow-right"></i></span>
-                    <span class="title">Publishing in 2 to 3 Days!</span>
+                    <span class="title">Everything Is an Object</span>
                 </a>
             </div>
 
